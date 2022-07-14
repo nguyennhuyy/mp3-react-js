@@ -1,0 +1,56 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	width: 100%;
+	height: 38px;
+	padding: 7px 25px;
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--black);
+	cursor: pointer;
+	border-left: 3px solid transparent;
+	&:hover {
+		color: var(--text-hover);
+		.playhover {
+			display: block;
+		}
+	}
+	&.active {
+		color: var(--text-hover);
+		border-left: 3px solid var(--text-hover);
+		.playhover {
+			display: none;
+		}
+		&:hover {
+			.playhover {
+				display: flex;
+			}
+		}
+	}
+}
+.sidebar-item-left {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.icon {
+	padding-right: 10px;
+}
+
+.title {
+	white-space: nowrap;
+	list-style: normal;
+}
+
+.playhover {
+	display: none;
+	margin-left: 50%;
+}
+.live {
+	position: absolute;
+	top: 30%;
+	right: 43%;
+}

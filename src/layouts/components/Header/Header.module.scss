@@ -1,0 +1,134 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 70px;
+}
+.header-left {
+	display: flex;
+	flex-direction: row;
+}
+.header-left {
+	align-items: center;
+	justify-content: flex-start;
+	width: 760px;
+	flex-grow: 1;
+	color: var(--text-placeholder);
+}
+
+.icon {
+	font-size: 2.4rem;
+	color: var(--black);
+	margin-right: 20px;
+	line-height: 66%;
+	cursor: pointer;
+}
+.header-right {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header-theme,
+.header-icon-vip,
+.header-icon-upload,
+.header-icon-setting,
+.header-avatar {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--alpha-bg);
+	border-radius: 999px;
+	text-align: center;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+.tippy-size {
+	font-size: 1.1rem;
+}
+.icon-right {
+	font-size: 2rem;
+}
+
+.avatar {
+	border-radius: 50%;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+//header-menu
+.header-menu {
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.wrapper-menu {
+	display: flex;
+	align-items: center;
+
+	width: 240px;
+	justify-content: flex-start;
+	padding: 12px 20px 12px 17px;
+}
+.icon-header-menu {
+	font-size: 20px;
+	margin-right: 10px;
+}
+.menu-title {
+	font-size: 1.4rem;
+	color: var(--text-primary);
+}
+.icon-header-menu-right {
+	margin-left: auto;
+}
+
+//option header
+.option-top,
+.option-bottom {
+	height: 70px;
+	padding: 5px 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: var(--text-primary);
+	cursor: pointer;
+}
+
+.option-top {
+	margin-bottom: 10px;
+}
+.option-bottom {
+	margin-top: 10px;
+}
+.option-item {
+	width: 90%;
+	text-align: left;
+}
+.option-title {
+	font-weight: 700;
+}
+.option-desc {
+	margin-top: 6px;
+	line-height: 1.5;
+	font-size: 12px;
+	color: var(--text-secondary);
+}
+.icon-option-1 {
+	color: var(--text-hover);
+	display: none;
+}
+.icon-option-2 {
+	color: var(--text-hover);
+	display: block;
+}
+
+.menu-line {
+	height: 1px;
+	width: 100%;
+	border-bottom: 1px solid var(--border-primary);
+}

@@ -1,0 +1,63 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+@import './../../assets/icons/icons.css';
+:root {
+	--sidebar-bg: rgba(0, 0, 0, 0.05);
+	--layout-bg: #e7dfdd;
+	--white: #fff;
+	--black: #32323d;
+	--text-hover: #409abc;
+	--text-secondary: #696969;
+	--border-primary: rgba(0, 0, 0, 0.1);
+	--padding-main: 59px;
+	--alpha-bg: rgba(0, 0, 0, 0.05);
+	--text-placeholder: #757575;
+	--primary-bg: #fffffe;
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: 1.4rem;
+	font-family: 'Inter', 'mp3-zing', sans-serif;
+	background-color: var(--layout-bg);
+}
+
+a {
+	text-decoration: none;
+	color: var(--black);
+}
+
+button,
+input {
+	border: none;
+	outline: none;
+}
+div,
+p {
+	word-break: break-word;
+}
+html *::-webkit-scrollbar {
+	border-radius: 0;
+	width: 4px;
+}
+
+html *::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: rgba(0, 0, 0, 0.15);
+}
+
+html *::-webkit-scrollbar-track {
+	border-radius: 0;
+	background-color: rgba(0, 0, 0, 0);
+}
