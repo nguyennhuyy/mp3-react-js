@@ -22,6 +22,7 @@
 	width: 540px;
 	height: auto;
 	max-height: 450px;
+	border-radius: 8px;
 	overflow: hidden;
 	overflow-y: auto;
 	overflow: overlay;
@@ -33,7 +34,6 @@
 
 .input-wrapper {
 	width: 85%;
-
 	position: relative;
 }
 .input-control {

@@ -36,6 +36,7 @@ function Search() {
 
 	return (
 		<HeadlessTippy
+			appendTo={() => document.body}
 			placement='bottom'
 			interactive
 			visible={focusInput && searchValue.length > 0}

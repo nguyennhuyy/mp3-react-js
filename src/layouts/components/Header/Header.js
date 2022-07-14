@@ -9,6 +9,10 @@ import styles from './Header.module.scss';
 import Search from './Search/Search';
 import TippyWrapper from '../TippyWrapper';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
+import {
+	ListMenuItemSetting,
+	ListMenuItemAvatar,
+} from './HeaderMenu/ListHeaderMenuItem';
 const cx = classNames.bind(styles);
 
 function Header() {
@@ -55,11 +59,17 @@ function Header() {
 				</Tippy>
 				<Tippy content='Tải lên' className={cx('tippy-size')}>
 					<div className={cx('header-icon-upload')}>
+						<input
+							className={cx('header-upload')}
+							type='file'
+							accept='audio/*'
+						/>
 						<i className={cx('icon-right', 'ic-upload')}></i>
 					</div>
 				</Tippy>
 
 				<HeadlessTippy
+					appendTo={() => document.body}
 					interactive
 					trigger='click'
 					placement='bottom-end'
@@ -74,10 +84,14 @@ function Header() {
 									title={<p className={cx('menu-title')}>Danh sách chặn</p>}
 								/>
 								<HeadlessTippy
+									appendTo={() => document.body}
 									interactive
 									placement='left-start'
 									render={(attrs) => (
-										<div className={cx('header-menu')} tabIndex='-1' {...attrs}>
+										<div
+											className={cx('header-menu-second')}
+											tabIndex='-1'
+											{...attrs}>
 											<TippyWrapper>
 												<div className={cx('option-header')}>
 													<div
@@ -126,6 +140,7 @@ function Header() {
 										title={<p className={cx('menu-title')}>Chất lượng nhạc</p>}
 										iconRight={
 											<i
+												ref={checkIcon1}
 												className={cx(
 													'icon-header-menu-right',
 													'ic-go-right'
@@ -134,24 +149,25 @@ function Header() {
 									/>
 								</HeadlessTippy>
 								<HeadlessTippy
+									appendTo={() => document.body}
 									interactive
 									placement='left-start'
 									render={(attrs) => (
-										<div className={cx('header-menu')} tabIndex='-1' {...attrs}>
-											<TippyWrapper>
-												<div className={cx('option-header-2')}>
-													<HeaderMenu
-														title='Luôn phát toàn màn hình'
-														iconRight={
-															<i
-																className={cx(
-																	'icon-header-menu-right',
-																	'ic-go-right'
-																)}></i>
-														}
-													/>
+										<div
+											className={cx('header-menu-second')}
+											tabIndex='-1'
+											{...attrs}>
+											<div className={cx('wrapper-option-2')}>
+												<div className={cx('option-2-item')}>
+													<p className={cx('option-2-title')}>
+														Luôn phát nhạc toàn màn hình
+													</p>
+													<i className={cx('icon-menu-option', 'ic-check')}></i>
 												</div>
-											</TippyWrapper>
+												<div className={cx('option-2-item')}>
+													<p className={cx('option-2-title')}>Giao diện</p>
+												</div>
+											</div>
 										</div>
 									)}>
 									<HeaderMenu
@@ -173,6 +189,14 @@ function Header() {
 									/>
 								</HeadlessTippy>
 								<div className={cx('menu-line')}></div>
+								{ListMenuItemSetting.map((item, key) => (
+									<HeaderMenu
+										key={key}
+										to={item.to}
+										iconLeft={item.iconLeft}
+										title={item.title}
+									/>
+								))}
 							</TippyWrapper>
 						</div>
 					)}>
@@ -182,13 +206,34 @@ function Header() {
 						</div>
 					</Tippy>
 				</HeadlessTippy>
-				<div className={cx('header-avatar')}>
-					<img
-						src='https://scontent.fhph1-2.fna.fbcdn.net/v/t39.30808-6/272331303_674248544007912_273387378438287797_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_ohc=wU2cBBG0vBkAX8qBCAf&_nc_ht=scontent.fhph1-2.fna&oh=00_AT9wf57UPL1tNc4YEaiMLUCT3p8unUOSL9I_Avs0aeYDEQ&oe=62D144CF'
-						className={cx('avatar')}
-						alt='avatar'
-					/>
-				</div>
+
+				<HeadlessTippy
+					interactive
+					trigger='click'
+					placement='bottom-end'
+					render={(attrs) => (
+						<div className={cx('wrapper-option-2')} tabIndex='-1' {...attrs}>
+							<div className={cx('option-3-item')}>
+								{ListMenuItemAvatar.map((item, key) => (
+									<HeaderMenu
+										key={key}
+										to={item.to}
+										iconLeft={item.iconLeft}
+										title={item.title}
+										className={item.className}
+									/>
+								))}
+							</div>
+						</div>
+					)}>
+					<div className={cx('header-avatar')}>
+						<img
+							src='https://scontent.fhph1-2.fna.fbcdn.net/v/t39.30808-6/272331303_674248544007912_273387378438287797_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_ohc=wU2cBBG0vBkAX8qBCAf&_nc_ht=scontent.fhph1-2.fna&oh=00_AT9wf57UPL1tNc4YEaiMLUCT3p8unUOSL9I_Avs0aeYDEQ&oe=62D144CF'
+							className={cx('avatar')}
+							alt='avatar'
+						/>
+					</div>
+				</HeadlessTippy>
 			</div>
 		</header>
 	);

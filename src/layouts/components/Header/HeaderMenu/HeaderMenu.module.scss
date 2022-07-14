@@ -5,8 +5,20 @@
 	justify-content: flex-start;
 	padding: 12px 20px 12px 17px;
 	cursor: pointer;
+	&:hover {
+		background-color: var(--alpha-bg);
+		color: var(--text-hover);
+	}
 }
 
-.menu-title {
-	width: 100%;
+.active {
+	width: 103%;
+}
+.active-border {
+	width: 103%;
+	border-bottom: 1px solid var(--border-primary);
+}
+.active-margin {
+	width: 103%;
+	margin-top: 10px;
 }

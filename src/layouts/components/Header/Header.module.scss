@@ -46,6 +46,14 @@
 	margin-right: 10px;
 	cursor: pointer;
 }
+.header-icon-upload {
+	position: relative;
+}
+.header-upload {
+	position: absolute;
+	opacity: 0;
+	width: 35px;
+}
 
 .tippy-size {
 	font-size: 1.1rem;
@@ -70,7 +78,6 @@
 .wrapper-menu {
 	display: flex;
 	align-items: center;
-
 	width: 240px;
 	justify-content: flex-start;
 	padding: 12px 20px 12px 17px;
@@ -88,25 +95,41 @@
 }
 
 //option header
+
+.header-menu-second {
+	box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
+	width: 103%;
+	background-color: var(--primary-bg);
+	border-radius: 8px;
+}
+.option-header {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
 .option-top,
 .option-bottom {
 	height: 70px;
-	padding: 5px 15px;
 	display: flex;
+	padding: 0 10px;
 	align-items: center;
-	justify-content: space-between;
+	width: 100%;
+	justify-content: flex-start;
 	color: var(--text-primary);
 	cursor: pointer;
+	user-select: none;
+	&:hover {
+		background-color: var(--alpha-bg);
+	}
 }
 
 .option-top {
 	margin-bottom: 10px;
 }
-.option-bottom {
-	margin-top: 10px;
-}
+
 .option-item {
-	width: 90%;
+	width: 87%;
 	text-align: left;
 }
 .option-title {
@@ -119,10 +142,13 @@
 	color: var(--text-secondary);
 }
 .icon-option-1 {
+	margin-left: 10px;
 	color: var(--text-hover);
 	display: none;
 }
 .icon-option-2 {
+	margin-left: 10px;
+
 	color: var(--text-hover);
 	display: block;
 }
@@ -131,4 +157,35 @@
 	height: 1px;
 	width: 100%;
 	border-bottom: 1px solid var(--border-primary);
+}
+
+//option-2
+.wrapper-option-2 {
+	width: 103%;
+	background-color: var(--primary-bg);
+	border-radius: 8px;
+	padding: 10px 0;
+	box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
+	color: var(--black);
+}
+.option-2-item {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+	padding: 12px;
+	cursor: pointer;
+	&:hover {
+		background-color: var(--alpha-bg);
+		color: var(--text-hover);
+	}
+}
+.icon-menu-option {
+	font-size: 1.6rem;
+	margin-left: 10px;
+	color: var(--text-hover);
+}
+
+.option-3-item {
+	width: 240px;
 }
