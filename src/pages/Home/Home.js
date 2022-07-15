@@ -67,14 +67,6 @@ function Home() {
 					))}
 				</div>
 			</div>
-			<div className={cx('wrapper-album')}>
-				<h2 className={cx('label-album')}>Có thể bạn muốn nghe</h2>
-				<div className={cx('content-album')}>
-					{album.map((item) => (
-						<AlbumItem key={item.id} data={item} />
-					))}
-				</div>
-			</div>
 		</div>
 	);
 }
