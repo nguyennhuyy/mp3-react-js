@@ -9,6 +9,9 @@ function SearchItem({ data }) {
 		<div className={cx('result-item')}>
 			<div className={cx('result-image')}>
 				<img src={data.thumbnail} className={cx('image')} alt={data.name} />
+				<button className={cx('btn-play')}>
+					<i className={cx('ic-play', 'icon-play')}></i>
+				</button>
 			</div>
 			<div className={cx('result-desc')}>
 				<p className={cx('name-song')}>{data.name}</p>

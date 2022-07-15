@@ -72,11 +72,11 @@ function Sidebar() {
 							iconActive={item.iconActive}
 						/>
 					))}
-					<div className={cx('create-newlist')}>
-						<i className={cx('icon-add', 'ic-add')}></i>
-						<span className={cx('newlist-title')}>Tạo playlist mới</span>
-					</div>
 				</div>
+			</div>
+			<div className={cx('create-newlist')}>
+				<i className={cx('icon-add', 'ic-add')}></i>
+				<span className={cx('newlist-title')}>Tạo playlist mới</span>
 			</div>
 		</div>
 	);

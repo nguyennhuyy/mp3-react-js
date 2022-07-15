@@ -69,7 +69,6 @@ function Header() {
 				</Tippy>
 
 				<HeadlessTippy
-					appendTo={() => document.body}
 					interactive
 					trigger='click'
 					placement='bottom-end'
@@ -84,7 +83,6 @@ function Header() {
 									title={<p className={cx('menu-title')}>Danh sách chặn</p>}
 								/>
 								<HeadlessTippy
-									appendTo={() => document.body}
 									interactive
 									placement='left-start'
 									render={(attrs) => (
@@ -149,7 +147,6 @@ function Header() {
 									/>
 								</HeadlessTippy>
 								<HeadlessTippy
-									appendTo={() => document.body}
 									interactive
 									placement='left-start'
 									render={(attrs) => (

@@ -19,8 +19,7 @@
 	padding: 0 25px 15px 28px;
 	border-left: 3px solid transparent;
 }
-.sidebar-menu,
-.sidebar-scrollbar {
+.sidebar-menu {
 	width: 100%;
 	margin-bottom: 15px;
 }
@@ -79,7 +78,7 @@
 	font-weight: 600;
 	color: var(--text-primary);
 	text-transform: uppercase;
-	margin: 0 28px 8px;
+	margin: 0 28px 0;
 	white-space: nowrap;
 	&:hover {
 		.icon-btn {
@@ -96,20 +95,18 @@
 }
 
 .create-newlist {
-	position: fixed;
-	width: 237px;
+	width: 100%;
 	left: 0;
-	height: 54px;
+	height: 113px;
 	border-top: 1px solid var(--border-primary);
 	padding: 0 28px;
 	border-radius: 0;
 	display: flex;
 	align-items: center;
-	background-color: var(--sidebar-bg);
 	color: var(--text-primary);
 	font-weight: 600;
-	bottom: 37px;
 	cursor: pointer;
+	bottom: 0;
 	&:hover {
 		.newlist-title {
 			color: var(--text-hover);

@@ -4,12 +4,21 @@
 	flex-direction: row;
 	padding: 8px 10px;
 	cursor: pointer;
+	&:hover {
+		background-color: var(--item-bg-hover);
+	}
 }
 
 .result-image {
 	width: 52px;
 	height: 52px;
 	margin-right: 10px;
+	position: relative;
+	&:hover {
+		.btn-play {
+			display: block;
+		}
+	}
 }
 .image {
 	border-radius: 4px;
@@ -36,4 +45,20 @@
 .name-singer {
 	font-size: 1.3rem;
 	color: var(--text-secondary);
+}
+.btn-play {
+	display: none;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	border-radius: 4px;
+	left: 0;
+	background-color: var(--btn-play-hover);
+	text-align: center;
+	cursor: pointer;
+}
+.icon-play {
+	font-size: 2rem;
+	color: var(--white);
 }

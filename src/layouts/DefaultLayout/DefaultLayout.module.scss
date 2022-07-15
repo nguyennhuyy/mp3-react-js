@@ -9,10 +9,14 @@
 }
 
 .container {
+	margin-top: var(--padding-main);
 	display: flex;
 	flex-direction: column;
 	padding: 0 var(--padding-main);
+	padding-top: 20px;
 	width: calc(100% - 237px);
+	height: calc(100vh - 90px);
+	overflow-y: scroll;
 }
 .content {
 	padding-top: 20px;

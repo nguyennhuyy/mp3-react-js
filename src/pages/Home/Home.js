@@ -11,9 +11,20 @@ import slide3 from './../../assets/images/slide3.jpg';
 import slide4 from './../../assets/images/slide4.jpg';
 import slide5 from './../../assets/images/slide5.jpg';
 import slide6 from './../../assets/images/slide6.jpg';
+import AlbumItem from '../../components/AlbumItem';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
+
 function Home() {
+	const [album, setAlbum] = useState([]);
+
+	useEffect(() => {
+		fetch('https://62cd38c3066bd2b69921256f.mockapi.io/api/album-songs')
+			.then((res) => res.json())
+			.then((data) => setAlbum(data));
+	}, []);
+
 	return (
 		<div className={cx('wrapper')}>
 			<Swiper
@@ -47,6 +58,23 @@ function Home() {
 					<img src={slide6} alt='avatar' />
 				</SwiperSlide>
 			</Swiper>
+
+			<div className={cx('wrapper-album')}>
+				<h2 className={cx('label-album')}>Có thể bạn muốn nghe</h2>
+				<div className={cx('content-album')}>
+					{album.map((item) => (
+						<AlbumItem key={item.id} data={item} />
+					))}
+				</div>
+			</div>
+			<div className={cx('wrapper-album')}>
+				<h2 className={cx('label-album')}>Có thể bạn muốn nghe</h2>
+				<div className={cx('content-album')}>
+					{album.map((item) => (
+						<AlbumItem key={item.id} data={item} />
+					))}
+				</div>
+			</div>
 		</div>
 	);
 }
