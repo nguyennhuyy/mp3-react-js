@@ -6,7 +6,7 @@ import { MySong, MyPlaylist, MyHistory } from '../../../../assets/icons/Icons';
 const cx = classNames.bind(styles);
 const ListSideBarMenu = [
 	{
-		to: '/canhan',
+		to: '/profile',
 		icon: <i className={cx('icon', 'ic-24-LibraryTab')}></i>,
 		title: 'Cá Nhân',
 		playhover: <i className={cx('icon', 'ic-20-Play-Outline')}></i>,
@@ -33,7 +33,7 @@ const ListSideBarMenu = [
 		iconActive: true,
 	},
 	{
-		to: '/theodoi',
+		to: '/follow',
 		icon: <i className={cx('icon', 'ic-24-FeedTab')}></i>,
 		title: 'Theo Dõi',
 		playhover: <i className={cx('icon', 'ic-20-Play-Outline')}></i>,

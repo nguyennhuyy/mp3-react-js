@@ -1,0 +1,28 @@
+import config from '../configs';
+import Home from '../pages/Home';
+import Zingchart from '../pages/Zingchart';
+import Radio from '../pages/Radio';
+import Follow from '../pages/Follow';
+import Profile from '../pages/Profile';
+export const publicRoutes = [
+	{
+		path: config.routes.profile,
+		component: Profile,
+	},
+	{
+		path: config.routes.home,
+		component: Home,
+	},
+	{
+		path: config.routes.zingchart,
+		component: Zingchart,
+	},
+	{
+		path: config.routes.radio,
+		component: Radio,
+	},
+	{
+		path: config.routes.follow,
+		component: Follow,
+	},
+];

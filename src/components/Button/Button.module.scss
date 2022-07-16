@@ -1,0 +1,33 @@
+.wrapper {
+	cursor: pointer;
+}
+.title {
+	font-size: 1.2rem;
+}
+.active {
+	color: var(--white);
+	background-color: var(--purple-primary);
+	border-color: var(--purple-primary);
+}
+.no-active {
+	border: none;
+	color: var(--black);
+	background-color: transparent;
+}
+.active-border {
+	border: 1px solid var(--white);
+	background-color: none;
+}
+//btn size
+
+.small {
+	border-radius: 100px;
+	padding: 4px 24px;
+	font-weight: 400;
+	text-transform: uppercase;
+	margin-right: 15px;
+}
+
+.large {
+	padding: 9px 20px;
+}

@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import HeadlessTippy from '@tippyjs/react/headless';
 import TippyWrapper from '../../TippyWrapper/TippyWrapper';
-import SearchItem from '../SearchItem/SearchItem';
+import SearchItem from '../../../../components/SongItem/SongItem';
 const cx = classNames.bind(styles);
 
 function Search() {

@@ -2,10 +2,18 @@
 	display: flex;
 	width: 100%;
 	flex-direction: row;
+	align-items: center;
 	padding: 8px 10px;
 	cursor: pointer;
 	&:hover {
 		background-color: var(--item-bg-hover);
+		border-radius: 4px;
+		.btn-play {
+			display: block;
+		}
+		.icon-more {
+			display: block;
+		}
 	}
 }
 
@@ -61,4 +69,33 @@
 .icon-play {
 	font-size: 2rem;
 	color: var(--white);
+}
+
+.active {
+	.name-song {
+		font-size: 1.4rem;
+	}
+	.name-singer {
+		font-size: 1.2rem;
+	}
+	.result-image {
+		width: 40px;
+		height: 40px;
+	}
+}
+.tippy-more {
+	font-size: 1rem;
+}
+
+.icon-more {
+	margin-left: auto;
+	color: var(--text-primary);
+	padding: 8px 9px;
+	border-radius: 50%;
+	margin-right: 5px;
+	display: none;
+
+	&:hover {
+		background-color: var(--alpha-bg);
+	}
 }

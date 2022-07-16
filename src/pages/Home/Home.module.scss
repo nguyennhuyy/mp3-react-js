@@ -14,7 +14,7 @@
 	height: 100%;
 	object-fit: cover;
 }
-.swiper {
+.wrapper {
 	:global(.swiper-button-prev),
 	:global(.swiper-button-next) {
 		width: 55px;
@@ -32,4 +32,24 @@
 		color: white;
 		font-size: 2.7rem;
 	}
+}
+
+//new section
+.new-section {
+	margin-top: 30px;
+}
+.section-title {
+	margin-bottom: 16px;
+	font-size: 2.1rem;
+}
+.section-select {
+	margin-bottom: 20px;
+}
+
+.list-new-song {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	max-height: 200px;
+	overflow: hidden;
 }
