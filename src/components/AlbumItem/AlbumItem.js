@@ -26,7 +26,6 @@ function AlbumItem({ data }) {
 						</Tippy>
 					</div>
 				</div>
-
 				<div className={cx('album-desc')}>
 					<span>{data.title_album}</span>
 					<p>{data.all_singer}</p>

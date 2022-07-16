@@ -47,6 +47,11 @@ function Home() {
 					<AlbumItem key={item.id} data={item} />
 				))}
 			</Albums>
+			<Albums title='Có Thể Bạn Muốn Nghe'>
+				{album.map((item) => (
+					<AlbumItem key={item.id} data={item} />
+				))}
+			</Albums>
 		</div>
 	);
 }
