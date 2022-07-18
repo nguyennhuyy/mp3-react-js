@@ -2,16 +2,17 @@ import propTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
 import { Link } from 'react-router-dom';
-
 const cx = classNames.bind(styles);
 function Button({
 	to,
 	href,
+	ref,
 	title,
 	small,
 	large,
 	onClick,
 	className,
+	iConRight,
 	...PassProps
 }) {
 	const classes = cx('wrapper', {
@@ -37,6 +38,7 @@ function Button({
 	return (
 		<Comp className={classes} {...props}>
 			<span className={cx('title')}>{title}</span>
+			{iConRight}
 		</Comp>
 	);
 }

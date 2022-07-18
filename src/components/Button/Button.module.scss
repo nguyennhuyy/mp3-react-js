@@ -10,13 +10,12 @@
 	border-color: var(--purple-primary);
 }
 .no-active {
-	border: none;
 	color: var(--black);
 	background-color: transparent;
 }
 .active-border {
-	border: 1px solid var(--white);
-	background-color: none;
+	border: 1px solid var(--border-primary);
+	background-color: transparent;
 }
 //btn size
 

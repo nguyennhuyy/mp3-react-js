@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
@@ -5,6 +7,9 @@ import styles from './AlbumItem.module.scss';
 const cx = classNames.bind(styles);
 
 function AlbumItem({ data }) {
+	const [jobId, setJobId] = useState(
+		window.location.pathname.slice(-7).replace('-', '_')
+	);
 	return (
 		<div className={cx('wrapper')}>
 			<div className={cx('album-img')}>
@@ -29,7 +34,7 @@ function AlbumItem({ data }) {
 				<Link to={`/album/@${data.title_album}`}>
 					<span className={cx('album-title')}>{data.title_album}</span>
 				</Link>
-				<p>{data.all_singer}</p>
+				<p>{data.description || data.all_singer}</p>
 			</div>
 		</div>
 	);

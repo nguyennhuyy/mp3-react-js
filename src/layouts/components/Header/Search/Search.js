@@ -4,6 +4,11 @@ import styles from './Search.module.scss';
 import HeadlessTippy from '@tippyjs/react/headless';
 import TippyWrapper from '../../TippyWrapper/TippyWrapper';
 import SearchItem from '../../../../components/SongItem/SongItem';
+
+import { makeServer } from '../../../../fakeApi';
+import { data } from '../../../../data';
+makeServer();
+
 const cx = classNames.bind(styles);
 
 function Search() {
@@ -13,9 +18,12 @@ function Search() {
 	const urlRefInput = useRef();
 
 	useEffect(() => {
-		fetch(`https://62cd38c3066bd2b69921256f.mockapi.io/api/song`)
-			.then((res) => res.json())
-			.then((data) => setSearchResult(data));
+		const postData = async () => {
+			const res = await fetch('/api/songs');
+			const data = await res.json();
+			setSearchResult(data);
+		};
+		postData();
 	}, [searchValue]);
 
 	const handleChange = (e) => {

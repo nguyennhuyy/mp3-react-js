@@ -26,9 +26,13 @@ function SongItem({ data, active, onClick, className, ...PassProps }) {
 				<p className={cx('name-song')}>{data.name}</p>
 				<span className={cx('name-singer')}>{data.singers_name}</span>
 			</div>
-			<Tippy content='Khác' className={cx('tippy-more')}>
-				<i className={cx('icon-more', 'ic-more')}></i>
-			</Tippy>
+			{active ? (
+				<Tippy content='Khác' className={cx('tippy-more')}>
+					<i className={cx('icon-more', 'ic-more')}></i>
+				</Tippy>
+			) : (
+				''
+			)}
 		</div>
 	);
 }

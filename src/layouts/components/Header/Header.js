@@ -9,6 +9,7 @@ import styles from './Header.module.scss';
 import Search from './Search/Search';
 import TippyWrapper from '../TippyWrapper';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
+import Avatar from '../../../assets/images/avatar.jpg';
 import {
 	ListMenuItemSetting,
 	ListMenuItemAvatar,
@@ -224,11 +225,7 @@ function Header() {
 						</div>
 					)}>
 					<div className={cx('header-avatar')}>
-						<img
-							src='https://scontent.fhph1-2.fna.fbcdn.net/v/t39.30808-6/272331303_674248544007912_273387378438287797_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_ohc=wU2cBBG0vBkAX8qBCAf&_nc_ht=scontent.fhph1-2.fna&oh=00_AT9wf57UPL1tNc4YEaiMLUCT3p8unUOSL9I_Avs0aeYDEQ&oe=62D144CF'
-							className={cx('avatar')}
-							alt='avatar'
-						/>
+						<img src={Avatar} className={cx('avatar')} alt='avatar' />
 					</div>
 				</HeadlessTippy>
 			</div>
