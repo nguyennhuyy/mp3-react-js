@@ -2,23 +2,32 @@
 	cursor: pointer;
 }
 .title {
-	font-size: 1.2rem;
 }
 .active {
 	color: var(--white);
 	background-color: var(--purple-primary);
 	border-color: var(--purple-primary);
+	font-size: 1.2rem;
 }
 .no-active {
 	color: var(--black);
 	background-color: transparent;
+	font-size: 1.2rem;
 }
 .active-border {
 	border: 1px solid var(--border-primary);
 	background-color: transparent;
+	font-size: 1.2rem;
 }
-//btn size
+.active-border-white {
+	background-color: var(--purple-primary);
+	color: var(--white);
+	padding: 5px 25px;
+	border-radius: 999px;
+	font-size: 1.4rem;
+}
 
+//btn size
 .small {
 	border-radius: 100px;
 	padding: 4px 24px;

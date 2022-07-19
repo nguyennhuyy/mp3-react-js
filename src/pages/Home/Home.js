@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import { Autoplay, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { Link } from 'react-router-dom';
 
 import Albums from '../../components/Albums';
 import { ListImgSwiper } from '../../assets/images';
@@ -11,7 +12,7 @@ import styles from './Home.module.scss';
 import AlbumItem from '../../components/AlbumItem';
 import Button from '../../components/Button';
 import SongItem from '../../components/SongItem/SongItem';
-import Linechart from '../../components/Linechart';
+import Chart from '../../components/Chart';
 import AlbumMedia from '../../components/AlbumMedia/AlbumMedia';
 const cx = classNames.bind(styles);
 
@@ -95,9 +96,9 @@ function Home() {
 			</Swiper>
 
 			<Albums title='Có Thể Bạn Muốn Nghe'>
-				{album.map((item) => (
-					<AlbumItem key={item.id} data={item} />
-				))}
+				{album.map(
+					(item, index) => index > 4 || <AlbumItem key={item.id} data={item} />
+				)}
 			</Albums>
 
 			<div className={cx('new-section')}>
@@ -136,14 +137,38 @@ function Home() {
 					''
 				)}
 			</div>
-
 			<Albums title='Lựa Chọn Hôm Nay'>
-				{albumsToday.map((item) => (
-					<AlbumItem key={item.id} data={item} />
-				))}
+				{albumsToday.map(
+					(item, index) => index > 4 || <AlbumItem key={item.id} data={item} />
+				)}
 			</Albums>
-
-			<Linechart />
+			<div className={cx('zing-chart')}>
+				<Link to='/zingchart'>
+					<div className={cx('chart-top')}>
+						<span className={cx('title-chart')}>#zingchart</span>
+						<i className={cx('icon-chart', 'ic-play')}></i>
+					</div>
+				</Link>
+				<div className={cx('container-chart')}>
+					<div className={cx('song-chart')}>
+						{song.map(
+							(item, index) =>
+								index > 2 || <SongItem key={item.id} data={item} />
+						)}
+						<div className={cx('button-chart')}>
+							<Button
+								to='/zingchart'
+								title='Xem thêm'
+								large
+								className={cx('active-border-white')}
+							/>
+						</div>
+					</div>
+					<div className={cx('chart-bottom')}>
+						<Chart />
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }

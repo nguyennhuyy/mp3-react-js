@@ -1,3 +1,4 @@
+import propTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './AlbumMedia.module.scss';
 import Tippy from '@tippyjs/react';
@@ -39,4 +40,8 @@ function AlbumMedia({ data, active = true }) {
 	);
 }
 
+AlbumMedia.propTypes = {
+	data: propTypes.object.isRequired,
+	active: propTypes.bool,
+};
 export default AlbumMedia;

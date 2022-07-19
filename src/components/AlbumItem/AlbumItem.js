@@ -1,5 +1,4 @@
-import { useState } from 'react';
-
+import propTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
@@ -7,9 +6,6 @@ import styles from './AlbumItem.module.scss';
 const cx = classNames.bind(styles);
 
 function AlbumItem({ data }) {
-	const [jobId, setJobId] = useState(
-		window.location.pathname.slice(-7).replace('-', '_')
-	);
 	return (
 		<div className={cx('wrapper')}>
 			<div className={cx('album-img')}>
@@ -40,4 +36,7 @@ function AlbumItem({ data }) {
 	);
 }
 
+AlbumItem.propTypes = {
+	data: propTypes.object.isRequired,
+};
 export default AlbumItem;

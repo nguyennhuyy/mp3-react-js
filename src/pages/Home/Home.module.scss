@@ -65,3 +65,60 @@
 	height: 200px;
 	overflow: hidden;
 }
+
+//zing chart
+
+.zing-chart {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border-radius: 8px;
+	border: 1px solid var(--hover-tooltip-opacity);
+}
+.chart-top {
+	display: flex;
+	letter-spacing: normal;
+	color: var(--white);
+	font-weight: 700;
+	font-size: 2.8rem;
+	align-items: center;
+}
+.title-chart {
+	background: radial-gradient(
+			50% 124.93% at 95.86% -10%,
+			#3efad9 0,
+			hsla(0, 0%, 100%, 0) 100%
+		),
+		linear-gradient(91.56deg, #ff9357 1.54%, #9100ff 98.71%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.icon-chart {
+	font-size: 10px;
+	padding: 5px;
+	background-color: #fff;
+	border-radius: 50%;
+	color: var(--black);
+	margin-left: 15px;
+}
+.container-chart {
+	display: flex;
+	margin-top: 20px;
+}
+.song-chart {
+	display: flex;
+	flex-direction: column;
+	width: 33.333%;
+	margin-top: 20px;
+}
+.button-chart {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.4rem;
+	margin-top: auto;
+}
+.chart-bottom {
+	flex-grow: 1;
+}
