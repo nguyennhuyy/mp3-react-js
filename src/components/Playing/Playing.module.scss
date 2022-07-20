@@ -1,0 +1,47 @@
+.wrapper {
+	cursor: pointer;
+	background-color: var(--layout-bg) !important;
+
+	:global(.rhap_progress-filled) {
+		background: radial-gradient(
+				50% 124.93% at 95.86% -10%,
+				#3efad9 0,
+				hsla(0, 0%, 100%, 0) 100%
+			),
+			linear-gradient(91.56deg, #ff9357 1.54%, #9100ff 98.71%);
+	}
+	:global(.rhap_progress-indicator) {
+		background: radial-gradient(
+				50% 124.93% at 95.86% -10%,
+				#3efad9 0,
+				hsla(0, 0%, 100%, 0) 100%
+			),
+			linear-gradient(91.56deg, #ff9357 1.54%, #9100ff 98.71%);
+		width: 13px;
+		height: 13px;
+		top: -5px;
+	}
+	:global(.rhap_download-progress) {
+		background-color: var(--progressbar-player-bg);
+		width: 100% !important;
+	}
+	:global(.rhap_progress-bar) {
+		height: 3px;
+	}
+	:global(.rhap_additional-controls) {
+		display: flex;
+		justify-content: flex-end;
+	}
+}
+:global(.rhap_container) {
+	display: flex !important;
+	flex-direction: row !important;
+	box-sizing: border-box;
+	padding: 10px 70px 10px 15px !important;
+	:global(.rhap_header) {
+		width: 30%;
+		display: flex;
+		align-items: center;
+		margin: 0;
+	}
+}

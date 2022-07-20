@@ -1,5 +1,4 @@
 import classNames from 'classnames/bind';
-import { func } from 'prop-types';
 import styles from './ListHeaderMenuItem.module.scss';
 
 const cx = classNames.bind(styles);

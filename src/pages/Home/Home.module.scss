@@ -62,10 +62,17 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 10px;
-	height: 200px;
+	height: 220px;
 	overflow: hidden;
 }
 
+.list-new-song-2 {
+	display: none;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	height: 220px;
+	overflow: hidden;
+}
 //zing chart
 
 .zing-chart {
@@ -82,6 +89,7 @@
 	font-weight: 700;
 	font-size: 2.8rem;
 	align-items: center;
+	text-align: center;
 }
 .title-chart {
 	background: radial-gradient(

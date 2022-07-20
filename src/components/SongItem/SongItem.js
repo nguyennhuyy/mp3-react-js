@@ -1,10 +1,14 @@
+import { useContext } from 'react';
 import propTypes from 'prop-types';
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import styles from './SongItem.module.scss';
+import { Songs } from './../Context';
+
 const cx = classNames.bind(styles);
 
 function SongItem({ data, active, onClick, className, ...PassProps }) {
+	const { song } = useContext(Songs);
 	const classes = cx('result-item', {
 		active,
 		onClick,
@@ -14,6 +18,7 @@ function SongItem({ data, active, onClick, className, ...PassProps }) {
 		onClick,
 		...PassProps,
 	};
+
 	return (
 		<div className={classes} {...props}>
 			<div className={cx('result-image')}>

@@ -6,7 +6,6 @@ import TippyWrapper from '../../TippyWrapper/TippyWrapper';
 import SearchItem from '../../../../components/SongItem/SongItem';
 
 import { makeServer } from '../../../../fakeApi';
-import { data } from '../../../../data';
 makeServer();
 
 const cx = classNames.bind(styles);

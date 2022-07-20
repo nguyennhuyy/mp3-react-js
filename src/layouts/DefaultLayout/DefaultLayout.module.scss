@@ -15,9 +15,16 @@
 	padding: 0 var(--padding-main);
 	padding-top: 20px;
 	width: calc(100% - 237px);
-	height: calc(100vh - 90px);
+	height: calc(100vh - 88px);
 	overflow-y: scroll;
 }
 .content {
-	padding: 20px 0;
+	padding: 20px 0 90px 0;
+}
+.playing {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
 }

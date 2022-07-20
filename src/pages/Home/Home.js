@@ -1,10 +1,10 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import { Autoplay, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Link } from 'react-router-dom';
 
 import Albums from '../../components/Albums';
 import { ListImgSwiper } from '../../assets/images';
@@ -14,45 +14,46 @@ import Button from '../../components/Button';
 import SongItem from '../../components/SongItem/SongItem';
 import Chart from '../../components/Chart';
 import AlbumMedia from '../../components/AlbumMedia/AlbumMedia';
+import { Songs } from '../../components/Context';
+
 const cx = classNames.bind(styles);
 
 function Home() {
+	const { dataSong, handleSetSong } = useContext(Songs);
 	const [album, setAlbum] = useState([]);
 	const [albumsToday, setAlbumsToday] = useState([]);
 	const [albumsMedia, setAlbumsMedia] = useState([]);
-	const [song, setSong] = useState([]);
 	const [status, setStatus] = useState(true);
-	const [statusRender, setStatusRender] = useState(false);
-	const listSongRef = useRef(null);
-	const listAlbumRef = useRef(null);
-	const refSong = useRef(null);
-	const refAlbum = useRef(null);
+
+	const listSongRef = useRef();
+	const listAlbumRef = useRef();
+	const refSong = useRef();
+	const refAlbum = useRef();
+
 	useEffect(() => {
 		const postAlbum = async () => {
 			const res = await fetch('/api/albums');
 			const data = await res.json();
 			setAlbum(data);
 		};
-		postAlbum();
+		postAlbum().catch((error) => console.log(error));
+	}, []);
+	useEffect(() => {
 		const albumsToday = async () => {
 			const res = await fetch('/api/albumstoday');
 			const data = await res.json();
 			setAlbumsToday(data);
 		};
-		albumsToday();
+		albumsToday().catch((error) => console.log(error));
+	}, []);
 
-		const postSong = async () => {
-			const res = await fetch('/api/songs');
-			const data = await res.json();
-			setSong(data);
-		};
-		postSong();
+	useEffect(() => {
 		const albumMedia = async () => {
 			const res = await fetch('/api/albummedia');
 			const data = await res.json();
 			setAlbumsMedia(data);
 		};
-		albumMedia();
+		albumMedia().catch((error) => console.log(error));
 	}, []);
 
 	const handleViewAll = () => {
@@ -60,7 +61,7 @@ function Home() {
 			listSongRef.current.style.height = '100%';
 			setStatus(false);
 		} else {
-			listSongRef.current.style.height = '200px';
+			listSongRef.current.style.height = '220px';
 			setStatus(true);
 		}
 	};
@@ -70,10 +71,14 @@ function Home() {
 		listAlbumRef.current.style.display = 'none';
 	};
 	const handleShowAlbum = () => {
-		setStatusRender(true);
-		listSongRef.current.style.display = 'none';
 		listAlbumRef.current.style.display = 'grid';
+		listSongRef.current.style.display = 'none';
 	};
+
+	const handlePlaySong = (id) => {
+		handleSetSong(id);
+	};
+
 	return (
 		<div className={cx('wrapper')}>
 			<Swiper
@@ -123,19 +128,21 @@ function Home() {
 				</div>
 
 				<div ref={listSongRef} className={cx('list-new-song')}>
-					{song.map((item) => (
-						<SongItem key={item.id} data={item} active />
+					{dataSong.map((item) => (
+						<SongItem
+							key={item.id}
+							data={item}
+							active
+							onClick={() => handlePlaySong(item.id)}
+						/>
 					))}
 				</div>
-				{statusRender ? (
-					<div ref={listAlbumRef} className={cx('list-new-song')}>
-						{albumsMedia.map((item) => (
-							<AlbumMedia key={item.id} data={item} active />
-						))}
-					</div>
-				) : (
-					''
-				)}
+
+				<div ref={listAlbumRef} className={cx('list-new-song-2')}>
+					{albumsMedia.map((item) => (
+						<AlbumMedia key={item.id} data={item} active />
+					))}
+				</div>
 			</div>
 			<Albums title='Lựa Chọn Hôm Nay'>
 				{albumsToday.map(
@@ -151,9 +158,15 @@ function Home() {
 				</Link>
 				<div className={cx('container-chart')}>
 					<div className={cx('song-chart')}>
-						{song.map(
+						{dataSong.map(
 							(item, index) =>
-								index > 2 || <SongItem key={item.id} data={item} />
+								index > 2 || (
+									<SongItem
+										key={item.id}
+										data={item}
+										onClick={() => handlePlaySong(item.id)}
+									/>
+								)
 						)}
 						<div className={cx('button-chart')}>
 							<Button
