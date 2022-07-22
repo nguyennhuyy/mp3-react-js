@@ -13,11 +13,10 @@
 	min-width: 660px;
 	padding: 0 var(--padding-main);
 }
+
 .header-left {
 	display: flex;
 	flex-direction: row;
-}
-.header-left {
 	align-items: center;
 	justify-content: flex-start;
 	width: 760px;
@@ -103,7 +102,6 @@
 }
 
 //option header
-
 .header-menu-second {
 	box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
 	width: 103%;

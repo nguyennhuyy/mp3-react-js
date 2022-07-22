@@ -1,6 +1,6 @@
 .wrapper {
 	display: flex;
-	width: 70%;
+	width: 85%;
 	flex-direction: row;
 	align-items: center;
 	padding: 8px 10px;
@@ -12,11 +12,11 @@
 	height: 52px;
 	margin-right: 10px;
 	position: relative;
-}
-.media-img {
-	border-radius: 4px;
-	height: 100%;
-	object-fit: cover;
+	.media-img {
+		border-radius: 4px;
+		height: 100%;
+		object-fit: cover;
+	}
 }
 
 .media-content {
@@ -30,23 +30,27 @@
 	text-overflow: ellipsis;
 	text-transform: none;
 	white-space: nowrap;
-}
-.name-song {
-	font-size: 1.5rem;
-	color: var(--black);
-	font-weight: 600;
-	text-align: left;
-	word-wrap: break-word;
-}
-.name-singer {
-	font-size: 1.3rem;
-	color: var(--text-secondary);
+	.name-song {
+		font-size: 1.5rem;
+		color: var(--black);
+		font-weight: 600;
+		text-align: left;
+		word-wrap: break-word;
+	}
+
+	.name-singer {
+		font-size: 1.3rem;
+		color: var(--text-secondary);
+	}
 }
 .media-right {
 	display: flex;
-}
-.icon-playing {
-	font-size: 1.6rem;
-	color: var(--black);
-	margin-left: 20px;
+	.tippy {
+		font-size: 1.1rem;
+	}
+	.icon-playing {
+		font-size: 1.6rem;
+		color: var(--black);
+		margin-left: 20px;
+	}
 }

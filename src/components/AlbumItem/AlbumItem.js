@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import propTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
@@ -10,9 +11,9 @@ function AlbumItem({ data }) {
 		<div className={cx('wrapper')}>
 			<div className={cx('album-img')}>
 				<img
-					src={data.big_thumbnails}
+					src={data.big_thumbnail}
 					className={cx('image')}
-					alt={data.title_album}
+					alt={data.name_album}
 				/>
 				<div className={cx('action-play')}>
 					<Tippy content='Thêm vào thư viện' className={cx('tippy-size')}>
@@ -27,8 +28,8 @@ function AlbumItem({ data }) {
 				</div>
 			</div>
 			<div className={cx('album-desc')}>
-				<Link to={`/album/@${data.title_album}`}>
-					<span className={cx('album-title')}>{data.title_album}</span>
+				<Link to={`/album/${data.name_album}`}>
+					<span className={cx('album-title')}>{data.name_album}</span>
 				</Link>
 				<p>{data.description || data.all_singer}</p>
 			</div>

@@ -4,6 +4,7 @@ import Zingchart from '../pages/Zingchart';
 import Radio from '../pages/Radio';
 import Follow from '../pages/Follow';
 import Profile from '../pages/Profile';
+import DetailAlbum from '../components/DetailAlbum/DetailAlbum';
 export const publicRoutes = [
 	{
 		path: config.routes.profile,
@@ -24,5 +25,9 @@ export const publicRoutes = [
 	{
 		path: config.routes.follow,
 		component: Follow,
+	},
+	{
+		path: config.routes.album,
+		component: DetailAlbum,
 	},
 ];

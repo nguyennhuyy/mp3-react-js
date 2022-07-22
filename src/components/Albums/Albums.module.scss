@@ -4,17 +4,16 @@
 	flex-direction: column;
 	user-select: none;
 	overflow: hidden;
-}
-.label-album {
-	margin: 24px 0;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.content-album {
-	display: grid;
-	margin: 0 -12px;
-	grid-template-columns: repeat(5, 1fr);
-	overflow: hidden;
+	.label-album {
+		margin: 24px 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.content-album {
+		display: grid;
+		margin: 0 -12px;
+		grid-template-columns: repeat(5, 1fr);
+		overflow: hidden;
+	}
 }

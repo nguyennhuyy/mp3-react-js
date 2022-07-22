@@ -11,7 +11,7 @@ function AlbumMedia({ data, active = true }) {
 				<div className={cx('thumb-action')}>
 					<img
 						className={cx('thumb-action-img')}
-						src={data.big_thumbnails}
+						src={data.big_thumbnail}
 						alt='thumb-action'
 					/>
 					<button className={cx('btn-play')}>
@@ -26,7 +26,7 @@ function AlbumMedia({ data, active = true }) {
 				</div>
 			</div>
 			<div className={cx('info')}>
-				<span className={cx('title')}>{data.title_album}</span>
+				<span className={cx('title')}>{data.name_album}</span>
 				<span className={cx('subtitle')}>{data.singer}</span>
 			</div>
 			{active ? (

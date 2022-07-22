@@ -30,23 +30,43 @@
 	width: 70px;
 	flex-shrink: 0;
 	line-height: 0;
+	.thumb-action {
+		width: 70px;
+		height: 70px;
+		border-radius: 4px;
+		overflow: hidden;
+		position: absolute;
+		z-index: 2;
+		transform: translateX(-10px);
+		transition: transform 0.3s linear;
+		.thumb-action-img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		.btn-play {
+			display: none;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			border-radius: 4px;
+			left: 0;
+			background-color: rgba(0, 0, 0, 0.3137254901960784);
+			text-align: center;
+			cursor: pointer;
+		}
+		.icon-play {
+			font-size: 2rem;
+			color: var(--white);
+		}
+	}
 }
-.thumb-action {
-	width: 70px;
-	height: 70px;
-	border-radius: 4px;
-	overflow: hidden;
-	position: absolute;
-	z-index: 2;
-	transform: translateX(-10px);
+.thumb-disk {
 	transition: transform 0.3s linear;
+	background-color: transparent;
 }
 
-.thumb-action-img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
 .info {
 	display: flex;
 	flex-direction: column;
@@ -59,48 +79,27 @@
 	font-size: 1.4rem;
 	font-weight: 500;
 	flex: 1 1;
-}
-.title {
-	color: var(--black);
-}
-.subtitle {
-	font-size: 1.2rem;
-	color: var(--text-secondary);
-}
-.btn-play {
-	display: none;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	top: 0;
-	border-radius: 4px;
-	left: 0;
-	background-color: rgba(0, 0, 0, 0.3137254901960784);
-	text-align: center;
-	cursor: pointer;
-}
-.icon-play {
-	font-size: 2rem;
-	color: var(--white);
+	.title {
+		color: var(--black);
+	}
+	.subtitle {
+		font-size: 1.2rem;
+		color: var(--text-secondary);
+	}
 }
 
-.thumb-disk {
-	transition: transform 0.3s linear;
-	background-color: transparent;
-}
 .tippy-more {
 	font-size: 1rem;
-}
+	.icon-more {
+		margin-left: auto;
+		color: var(--text-primary);
+		padding: 8px 9px;
+		border-radius: 50%;
+		margin-right: 5px;
+		display: none;
 
-.icon-more {
-	margin-left: auto;
-	color: var(--text-primary);
-	padding: 8px 9px;
-	border-radius: 50%;
-	margin-right: 5px;
-	display: none;
-
-	&:hover {
-		background-color: var(--alpha-bg);
+		&:hover {
+			background-color: var(--alpha-bg);
+		}
 	}
 }

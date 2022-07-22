@@ -12,6 +12,7 @@ const cx = classNames.bind(styles);
 function DefaultLayout({ children }) {
 	const [songs, setSongs] = useState([]);
 	const [dataSong, setDataSong] = useState([]);
+	const [dataDetailAlbum, setDataDetailAlbum] = useState([]);
 
 	useEffect(() => {
 		const postSong = async () => {
@@ -22,6 +23,15 @@ function DefaultLayout({ children }) {
 		};
 		postSong();
 	}, []);
+	useEffect(() => {
+		const postDetailAlbum = async () => {
+			const res = await fetch('/api/detailalbum');
+			const data = await res.json();
+
+			setDataDetailAlbum(data);
+		};
+		postDetailAlbum();
+	}, []);
 
 	const handleSetSong = (id) => {
 		const songid = dataSong.find((item) => item.id === id);
@@ -31,8 +41,24 @@ function DefaultLayout({ children }) {
 			setSongs(songid);
 		}
 	};
+	const handleSetDetailSong = (id) => {
+		const songid = dataDetailAlbum.find((item) => item.id === id);
+		if (!songid) {
+			setSongs(dataDetailAlbum[0]);
+		} else {
+			setSongs(songid);
+		}
+	};
 	return (
-		<Songs.Provider value={{ songs, dataSong, setSongs, handleSetSong }}>
+		<Songs.Provider
+			value={{
+				songs,
+				dataSong,
+				dataDetailAlbum,
+				setSongs,
+				handleSetSong,
+				handleSetDetailSong,
+			}}>
 			<div className={cx('wrapper')}>
 				<Sidebar />
 				<div className={cx('container')}>

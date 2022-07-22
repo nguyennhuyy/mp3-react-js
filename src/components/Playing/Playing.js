@@ -28,6 +28,7 @@ function Playing() {
 			className={cx('wrapper')}
 			src={undefined ? '' : songs?.music}
 			layout='stacked-reverse'
+			preload='auto'
 			loop={true}
 			header={<SongPlaying data={songs} />}
 			autoPlay={false}

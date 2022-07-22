@@ -4,6 +4,6 @@ const routes = {
 	zingchart: '/zingchart',
 	radio: '/radio',
 	follow: '/follow',
-	album: '/album/:album',
+	album: '/album',
 };
 export default routes;

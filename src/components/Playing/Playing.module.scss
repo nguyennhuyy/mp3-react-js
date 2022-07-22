@@ -23,7 +23,6 @@
 	}
 	:global(.rhap_download-progress) {
 		background-color: var(--progressbar-player-bg);
-		width: 100% !important;
 	}
 	:global(.rhap_progress-bar) {
 		height: 3px;

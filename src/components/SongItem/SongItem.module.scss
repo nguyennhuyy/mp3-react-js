@@ -1,4 +1,4 @@
-.result-item {
+.wrapper {
 	display: flex;
 	width: 100%;
 	flex-direction: row;
@@ -27,12 +27,29 @@
 			display: block;
 		}
 	}
-}
-.image {
-	border-radius: 4px;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+	.image {
+		border-radius: 4px;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.btn-play {
+		display: none;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		border-radius: 4px;
+		left: 0;
+		background-color: var(--btn-play-hover);
+		text-align: center;
+		cursor: pointer;
+	}
+	.icon-play {
+		font-size: 2rem;
+		color: var(--white);
+	}
 }
 .result-desc {
 	display: flex;
@@ -42,34 +59,17 @@
 	justify-content: center;
 	line-height: 2rem;
 	width: 70%;
-}
-
-.name-song {
-	font-size: 1.5rem;
-	color: var(--black);
-	font-weight: 600;
-	text-align: left;
-	word-wrap: break-word;
-}
-.name-singer {
-	font-size: 1.3rem;
-	color: var(--text-secondary);
-}
-.btn-play {
-	display: none;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	top: 0;
-	border-radius: 4px;
-	left: 0;
-	background-color: var(--btn-play-hover);
-	text-align: center;
-	cursor: pointer;
-}
-.icon-play {
-	font-size: 2rem;
-	color: var(--white);
+	.name-song {
+		font-size: 1.5rem;
+		color: var(--black);
+		font-weight: 600;
+		text-align: left;
+		word-wrap: break-word;
+	}
+	.name-singer {
+		font-size: 1.3rem;
+		color: var(--text-secondary);
+	}
 }
 
 .active {
@@ -84,10 +84,10 @@
 		height: 40px;
 	}
 }
+
 .tippy-more {
 	font-size: 1rem;
 }
-
 .icon-more {
 	margin-left: auto;
 	color: var(--text-primary);

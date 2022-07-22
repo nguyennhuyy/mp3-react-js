@@ -1,13 +1,14 @@
 import { createServer, Model } from 'miragejs';
-import { songs, albums, albumsToday, albumMedia } from '../data';
+import { data } from '../data';
 export function makeServer() {
 	let server = createServer({
 		seeds(server) {
 			server.db.loadData({
-				songs,
-				albums,
-				albumsToday,
-				albumMedia,
+				songs: data.songs,
+				albums: data.album,
+				albumMedia: data.albumMedia,
+				albumsToday: data.albumToday,
+				detailAlbum: data.detailAlbum,
 			});
 		},
 		models: {
@@ -25,6 +26,9 @@ export function makeServer() {
 			});
 			this.get('/api/albummedia', (schema) => {
 				return schema.db.albumMedia;
+			});
+			this.get('/api/detailalbum', (schema) => {
+				return schema.db.detailAlbum;
 			});
 		},
 	});
