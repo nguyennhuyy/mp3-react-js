@@ -11,9 +11,11 @@ import Playing from '../../components/Playing/Playing';
 const cx = classNames.bind(styles);
 function DefaultLayout({ children }) {
 	const [songs, setSongs] = useState([]);
+	const [albums, setAlbums] = useState([]);
 	const [dataSong, setDataSong] = useState([]);
 	const [dataDetailAlbum, setDataDetailAlbum] = useState([]);
-
+	const [detailAlbum, setDetailAlbum] = useState([]);
+	const [detailKey, setDetailKey] = useState('');
 	useEffect(() => {
 		const postSong = async () => {
 			const res = await fetch('/api/songs');
@@ -32,6 +34,15 @@ function DefaultLayout({ children }) {
 		};
 		postDetailAlbum();
 	}, []);
+	useEffect(() => {
+		const postAlbum = async () => {
+			const res = await fetch('/api/albums');
+			const data = await res.json();
+
+			setAlbums(data);
+		};
+		postAlbum();
+	}, []);
 
 	const handleSetSong = (id) => {
 		const songid = dataSong.find((item) => item.id === id);
@@ -41,23 +52,37 @@ function DefaultLayout({ children }) {
 			setSongs(songid);
 		}
 	};
-	const handleSetDetailSong = (id) => {
-		const songid = dataDetailAlbum.find((item) => item.id === id);
+
+	const handleSetSongDetail = (id) => {
+		const songid = detailAlbum.find((item) => item.id === id);
 		if (!songid) {
-			setSongs(dataDetailAlbum[0]);
+			setSongs(dataSong[0]);
 		} else {
 			setSongs(songid);
+		}
+	};
+	const handleSetDetailAlbum = (data) => {
+		const songkey = dataDetailAlbum.filter(
+			(item) => item.path_key === data.path_key
+		);
+		if (songkey) {
+			setDetailAlbum(songkey);
 		}
 	};
 	return (
 		<Songs.Provider
 			value={{
 				songs,
+				albums,
 				dataSong,
 				dataDetailAlbum,
+				detailAlbum,
+				detailKey,
 				setSongs,
+				setDetailKey,
 				handleSetSong,
-				handleSetDetailSong,
+				handleSetDetailAlbum,
+				handleSetSongDetail,
 			}}>
 			<div className={cx('wrapper')}>
 				<Sidebar />

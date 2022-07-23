@@ -19,7 +19,8 @@ import { Songs } from '../../components/Context';
 const cx = classNames.bind(styles);
 
 function Home() {
-	const { dataSong, handleSetSong } = useContext(Songs);
+	const { dataSong, setDetailKey, handleSetSong, handleSetDetailAlbum } =
+		useContext(Songs);
 	const [album, setAlbum] = useState([]);
 	const [albumsToday, setAlbumsToday] = useState([]);
 	const [albumsMedia, setAlbumsMedia] = useState([]);
@@ -79,6 +80,10 @@ function Home() {
 		handleSetSong(id);
 	};
 
+	const handleGetKeySong = (data) => {
+		handleSetDetailAlbum(data);
+		setDetailKey(data.path_key);
+	};
 	return (
 		<div className={cx('wrapper')}>
 			<Swiper
@@ -102,7 +107,14 @@ function Home() {
 
 			<Albums title='Có Thể Bạn Muốn Nghe'>
 				{album.map(
-					(item, index) => index > 4 || <AlbumItem key={item.id} data={item} />
+					(item, index) =>
+						index > 4 || (
+							<AlbumItem
+								key={item.id}
+								data={item}
+								onClick={() => handleGetKeySong(item)}
+							/>
+						)
 				)}
 			</Albums>
 
@@ -146,7 +158,14 @@ function Home() {
 			</div>
 			<Albums title='Lựa Chọn Hôm Nay'>
 				{albumsToday.map(
-					(item, index) => index > 4 || <AlbumItem key={item.id} data={item} />
+					(item, index) =>
+						index > 4 || (
+							<AlbumItem
+								key={item.id}
+								data={item}
+								onClick={() => handleGetKeySong(item)}
+							/>
+						)
 				)}
 			</Albums>
 			<div className={cx('zing-chart')}>

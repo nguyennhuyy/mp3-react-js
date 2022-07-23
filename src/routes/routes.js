@@ -4,7 +4,7 @@ import Zingchart from '../pages/Zingchart';
 import Radio from '../pages/Radio';
 import Follow from '../pages/Follow';
 import Profile from '../pages/Profile';
-import DetailAlbum from '../components/DetailAlbum/DetailAlbum';
+import DetailAlbum from '../components/DetailAlbum';
 export const publicRoutes = [
 	{
 		path: config.routes.profile,

@@ -33,6 +33,7 @@ function Playing() {
 			header={<SongPlaying data={songs} />}
 			autoPlay={false}
 			showFilledVolume
+			autoPlayAfterSrcChange
 			showSkipControls={true}
 			showJumpControls={false}
 			onClickNext={handleNextSong}
