@@ -8,7 +8,6 @@ export function makeServer() {
 				albums: data.album,
 				albumMedia: data.albumMedia,
 				albumsToday: data.albumToday,
-				detailAlbum: data.detailAlbum,
 			});
 		},
 		models: {
@@ -26,9 +25,6 @@ export function makeServer() {
 			});
 			this.get('/api/albummedia', (schema) => {
 				return schema.db.albumMedia;
-			});
-			this.get('/api/detailalbum', (schema) => {
-				return schema.db.detailAlbum;
 			});
 		},
 	});

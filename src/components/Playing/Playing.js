@@ -1,33 +1,24 @@
 import { useContext, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './Playing.module.scss';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import { Songs } from './../Context';
-import SongPlaying from '../SongPlaying/SongPlaying';
+
+import SongPlaying from '../SongPlaying';
+import { playSong } from '../../redux/Action';
 
 const cx = classNames.bind(styles);
 function Playing() {
-	const { songs, dataSong, handleSetSong } = useContext(Songs);
-	const handleNextSong = () => {
-		let idSong = +songs.id + 1;
-		if (idSong == dataSong.length) {
-			idSong = 0;
-		}
-		handleSetSong(idSong.toString());
-	};
-	const handlePrevSong = () => {
-		let idSong = +songs.id - 1;
-		if (idSong == 0) {
-			idSong = dataSong.length;
-		}
-		handleSetSong(idSong.toString());
-	};
+	const songs = useSelector((item) => item.songReducer.songs);
+	const dispatch = useDispatch();
+	const handleNextSong = () => {};
+	const handlePrevSong = () => {};
 	return (
 		<AudioPlayer
 			className={cx('wrapper')}
-			src={undefined ? '' : songs?.music}
 			layout='stacked-reverse'
+			src={undefined ? '' : songs?.music}
 			preload='auto'
 			loop={true}
 			header={<SongPlaying data={songs} />}

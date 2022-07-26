@@ -2,6 +2,9 @@ import { useEffect, useState, useRef, useContext } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
+import { useDispatch } from 'react-redux';
+
+import { callDetailAlbum, playSong } from '../../redux/Action';
 import { Autoplay, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -14,22 +17,30 @@ import Button from '../../components/Button';
 import SongItem from '../../components/SongItem/SongItem';
 import Chart from '../../components/Chart';
 import AlbumMedia from '../../components/AlbumMedia/AlbumMedia';
-import { Songs } from '../../components/Context';
 
 const cx = classNames.bind(styles);
 
 function Home() {
-	const { dataSong, setDetailKey, handleSetSong, handleSetDetailAlbum } =
-		useContext(Songs);
+	const [newSong, setNewSong] = useState([]);
 	const [album, setAlbum] = useState([]);
 	const [albumsToday, setAlbumsToday] = useState([]);
 	const [albumsMedia, setAlbumsMedia] = useState([]);
 	const [status, setStatus] = useState(true);
+	const dispatch = useDispatch();
 
 	const listSongRef = useRef();
 	const listAlbumRef = useRef();
 	const refSong = useRef();
 	const refAlbum = useRef();
+
+	useEffect(() => {
+		const postSong = async () => {
+			const res = await fetch('/api/songs');
+			const data = await res.json();
+			setNewSong(data);
+		};
+		postSong().catch((error) => console.log(error));
+	}, []);
 
 	useEffect(() => {
 		const postAlbum = async () => {
@@ -39,6 +50,7 @@ function Home() {
 		};
 		postAlbum().catch((error) => console.log(error));
 	}, []);
+
 	useEffect(() => {
 		const albumsToday = async () => {
 			const res = await fetch('/api/albumstoday');
@@ -76,13 +88,11 @@ function Home() {
 		listSongRef.current.style.display = 'none';
 	};
 
-	const handlePlaySong = (id) => {
-		handleSetSong(id);
+	const handleSetSong = (data) => {
+		dispatch(callDetailAlbum(data));
 	};
-
-	const handleGetKeySong = (data) => {
-		handleSetDetailAlbum(data);
-		setDetailKey(data.path_key);
+	const handlePlaySong = (data) => {
+		dispatch(playSong(data));
 	};
 	return (
 		<div className={cx('wrapper')}>
@@ -112,7 +122,7 @@ function Home() {
 							<AlbumItem
 								key={item.id}
 								data={item}
-								onClick={() => handleGetKeySong(item)}
+								onClick={() => handleSetSong(item)}
 							/>
 						)
 				)}
@@ -140,12 +150,12 @@ function Home() {
 				</div>
 
 				<div ref={listSongRef} className={cx('list-new-song')}>
-					{dataSong.map((item) => (
+					{newSong.map((item) => (
 						<SongItem
 							key={item.id}
 							data={item}
 							active
-							onClick={() => handlePlaySong(item.id)}
+							onClick={() => handlePlaySong(item)}
 						/>
 					))}
 				</div>
@@ -163,7 +173,7 @@ function Home() {
 							<AlbumItem
 								key={item.id}
 								data={item}
-								onClick={() => handleGetKeySong(item)}
+								onClick={() => handleSetSong(item)}
 							/>
 						)
 				)}
@@ -177,16 +187,6 @@ function Home() {
 				</Link>
 				<div className={cx('container-chart')}>
 					<div className={cx('song-chart')}>
-						{dataSong.map(
-							(item, index) =>
-								index > 2 || (
-									<SongItem
-										key={item.id}
-										data={item}
-										onClick={() => handlePlaySong(item.id)}
-									/>
-								)
-						)}
 						<div className={cx('button-chart')}>
 							<Button
 								to='/zingchart'
