@@ -1,16 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import HeadlessTippy from '@tippyjs/react/headless';
-import TippyWrapper from '../../TippyWrapper/TippyWrapper';
-import SearchItem from '../../../../components/SongItem/SongItem';
 
 import { makeServer } from '../../../../fakeApi';
+import { playSong } from '../../../../redux/Action';
+import TippyWrapper from '../../TippyWrapper/TippyWrapper';
+import SearchItem from '../../../../components/SongItem/SongItem';
 makeServer();
 
 const cx = classNames.bind(styles);
 
 function Search() {
+	const dispatch = useDispatch();
 	const [searchValue, setSearchValue] = useState('');
 	const [searchResult, setSearchResult] = useState([]);
 	const [focusInput, setFocusInput] = useState(true);
@@ -41,6 +44,9 @@ function Search() {
 		setSearchResult([]);
 	};
 
+	const handlePlaySong = (data) => {
+		dispatch(playSong(data));
+	};
 	return (
 		<HeadlessTippy
 			appendTo={() => document.body}
@@ -53,7 +59,11 @@ function Search() {
 					<TippyWrapper>
 						<h3 className={cx('search-title')}>Gợi ý kết quả</h3>
 						{searchResult.map((item) => (
-							<SearchItem key={item.id} data={item} />
+							<SearchItem
+								key={item.id}
+								data={item}
+								onClick={() => handlePlaySong(item)}
+							/>
 						))}
 					</TippyWrapper>
 				</div>
