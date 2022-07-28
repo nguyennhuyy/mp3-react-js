@@ -5,6 +5,7 @@ import Radio from '../pages/Radio';
 import Follow from '../pages/Follow';
 import Profile from '../pages/Profile';
 import DetailAlbum from '../components/DetailAlbum';
+import Singer from '../components/Singer/Singer';
 export const publicRoutes = [
 	{
 		path: config.routes.profile,
@@ -29,5 +30,9 @@ export const publicRoutes = [
 	{
 		path: config.routes.album,
 		component: DetailAlbum,
+	},
+	{
+		path: config.routes.singer,
+		component: Singer,
 	},
 ];

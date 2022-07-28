@@ -452,7 +452,7 @@ export const data = {
 			date: 'Cập nhật: 17/07/2022',
 			like: '1K người yêu thích',
 			id: 1,
-			path_key: 'ZING3',
+			path_key: 'ZING1',
 		},
 		{
 			big_thumbnail:
@@ -463,6 +463,7 @@ export const data = {
 			date: 'Cập nhật: 03/07/2022',
 			like: '40K người yêu thích',
 			id: 2,
+			path_key: 'ZING2',
 		},
 		{
 			big_thumbnail:
@@ -473,6 +474,7 @@ export const data = {
 			date: 'Cập nhật: 29/06/2022',
 			like: '2K người yêu thích',
 			id: 3,
+			path_key: 'ZING3',
 		},
 		{
 			big_thumbnail:
@@ -483,6 +485,7 @@ export const data = {
 			date: 'Cập nhật: 14/07/2022',
 			like: '178K người yêu thích',
 			id: 4,
+			path_key: 'ZING4',
 		},
 		{
 			big_thumbnail:
@@ -493,6 +496,7 @@ export const data = {
 			date: 'Cập nhật: 17/07/2022',
 			like: '2K người yêu thích',
 			id: 5,
+			path_key: 'ZING5',
 		},
 	],
 	albumMedia: [
@@ -504,6 +508,7 @@ export const data = {
 			date: 'Cập nhật: 15/07/2022',
 			like: '59 người yêu thích',
 			id: 1,
+			path_key: 'ZING1',
 		},
 		{
 			big_thumbnail:
@@ -513,6 +518,7 @@ export const data = {
 			date: 'Cập nhật: 15/07/2022',
 			like: '59 người yêu thích',
 			id: 2,
+			path_key: 'ZING2',
 		},
 		{
 			big_thumbnail:
@@ -522,6 +528,7 @@ export const data = {
 			date: 'Cập nhật: 15/07/2022',
 			like: '59 người yêu thích',
 			id: 3,
+			path_key: 'ZING3',
 		},
 		{
 			big_thumbnail:
@@ -531,6 +538,7 @@ export const data = {
 			date: 'Cập nhật: 15/07/2022',
 			like: '19 người yêu thích',
 			id: 4,
+			path_key: 'ZING4',
 		},
 		{
 			big_thumbnail:
@@ -540,6 +548,7 @@ export const data = {
 			date: 'Cập nhật: 15/07/2022',
 			like: '54 người yêu thích',
 			id: 5,
+			path_key: 'ZING5',
 		},
 		{
 			big_thumbnail:
@@ -549,6 +558,7 @@ export const data = {
 			date: 'Cập nhật: 15/07/2022',
 			like: '79 người yêu thích',
 			id: 6,
+			path_key: 'ZING6',
 		},
 	],
 };

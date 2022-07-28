@@ -1,18 +1,15 @@
 import { combineReducers } from 'redux';
-import DetailAlbum from '../../components/DetailAlbum';
 
 const initState = {
-	path_key: '',
-	data: '',
+	detailAlbum: '',
 	songs: '',
 };
 export const songReducer = (state = initState, action) => {
 	switch (action.type) {
-		case 'SHOW_DETAIL':
+		case 'SHOW_DETAIL_ALBUM':
 			return {
 				...state,
-				path_key: action.payload,
-				data: <DetailAlbum data={action.payload} />,
+				detailAlbum: action.payload,
 			};
 		case 'PLAY_SONG':
 			return {

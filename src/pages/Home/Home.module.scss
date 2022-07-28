@@ -1,4 +1,5 @@
 .wrapper {
+	padding-bottom: 200px;
 	:global(.swiper-button-prev),
 	:global(.swiper-button-next) {
 		width: 55px;
@@ -133,7 +134,7 @@
 			margin-top: auto;
 		}
 	}
-	.chart-bottom {
+	.chart-right {
 		flex-grow: 1;
 	}
 }

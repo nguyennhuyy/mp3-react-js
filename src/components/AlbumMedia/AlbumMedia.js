@@ -1,7 +1,7 @@
-import propTypes from 'prop-types';
-import classNames from 'classnames/bind';
-import styles from './AlbumMedia.module.scss';
 import Tippy from '@tippyjs/react';
+import classNames from 'classnames/bind';
+import propTypes from 'prop-types';
+import styles from './AlbumMedia.module.scss';
 
 const cx = classNames.bind(styles);
 function AlbumMedia({ data, active = true }) {
@@ -26,9 +26,10 @@ function AlbumMedia({ data, active = true }) {
 				</div>
 			</div>
 			<div className={cx('info')}>
-				<span className={cx('title')}>{data.name_album}</span>
-				<span className={cx('subtitle')}>{data.singer}</span>
+				<span className={cx('title')}>{data.album}</span>
+				<span className={cx('subtitle')}>{data.name_singer}</span>
 			</div>
+
 			{active ? (
 				<Tippy content='Khác' className={cx('tippy-more')}>
 					<i className={cx('icon-more', 'ic-more')}></i>

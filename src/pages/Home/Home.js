@@ -1,22 +1,20 @@
-import { useEffect, useState, useRef, useContext } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-
-import { callDetailAlbum, playSong } from '../../redux/Action';
+import { Link } from 'react-router-dom';
 import { Autoplay, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-
-import Albums from '../../components/Albums';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { ListImgSwiper } from '../../assets/images';
-import styles from './Home.module.scss';
 import AlbumItem from '../../components/AlbumItem';
-import Button from '../../components/Button';
-import SongItem from '../../components/SongItem/SongItem';
-import Chart from '../../components/Chart';
 import AlbumMedia from '../../components/AlbumMedia/AlbumMedia';
+import Albums from '../../components/Albums';
+import Button from '../../components/Button';
+import Chart from '../../components/Chart';
+import SongItem from '../../components/SongItem/SongItem';
+import { detailAlbum, playSong } from '../../redux/Action';
+import styles from './Home.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -89,7 +87,8 @@ function Home() {
 	};
 
 	const handleSetSong = (data) => {
-		dispatch(callDetailAlbum(data));
+		console.log(data);
+		dispatch(detailAlbum(data));
 	};
 	const handlePlaySong = (data) => {
 		dispatch(playSong(data));
@@ -116,16 +115,17 @@ function Home() {
 			</Swiper>
 
 			<Albums title='Có Thể Bạn Muốn Nghe'>
-				{album.map(
-					(item, index) =>
-						index > 4 || (
+				{album.map((item, index) => {
+					if (index < 5) {
+						return (
 							<AlbumItem
 								key={item.id}
 								data={item}
 								onClick={() => handleSetSong(item)}
 							/>
-						)
-				)}
+						);
+					}
+				})}
 			</Albums>
 
 			<div className={cx('new-section')}>
@@ -167,16 +167,17 @@ function Home() {
 				</div>
 			</div>
 			<Albums title='Lựa Chọn Hôm Nay'>
-				{albumsToday.map(
-					(item, index) =>
-						index > 4 || (
+				{albumsToday.map((item, index) => {
+					if (index < 5) {
+						return (
 							<AlbumItem
 								key={item.id}
 								data={item}
 								onClick={() => handleSetSong(item)}
 							/>
-						)
-				)}
+						);
+					}
+				})}
 			</Albums>
 			<div className={cx('zing-chart')}>
 				<Link to='/zingchart'>
@@ -187,6 +188,19 @@ function Home() {
 				</Link>
 				<div className={cx('container-chart')}>
 					<div className={cx('song-chart')}>
+						{newSong.map((item, index) => {
+							if (index < 3) {
+								return (
+									<SongItem
+										key={item.id}
+										data={item}
+										active
+										onClick={() => handlePlaySong(item)}
+									/>
+								);
+							}
+						})}
+
 						<div className={cx('button-chart')}>
 							<Button
 								to='/zingchart'
@@ -196,10 +210,34 @@ function Home() {
 							/>
 						</div>
 					</div>
-					<div className={cx('chart-bottom')}>
+					<div className={cx('chart-right')}>
 						<Chart />
 					</div>
 				</div>
+			</div>
+			<div className={cx('singer')}>
+				<Swiper
+					className={cx('swiper')}
+					slidesPerView={6}
+					spaceBetween={30}
+					loop={true}
+					loopFillGroupWithBlank={true}
+					autoplay={{
+						delay: 3000,
+						disableOnInteraction: false,
+					}}
+					navigation={true}
+					modules={[Autoplay, Navigation]}>
+					{ListImgSwiper.map((item, key) => (
+						<SwiperSlide key={key} className={cx('swiper-image')}>
+							<img
+								src={item.url}
+								alt={item.alt}
+								onClick={() => handleSetSong(item)}
+							/>
+						</SwiperSlide>
+					))}
+				</Swiper>
 			</div>
 		</div>
 	);

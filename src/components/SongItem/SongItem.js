@@ -1,7 +1,6 @@
-import { useContext } from 'react';
-import propTypes from 'prop-types';
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
+import propTypes from 'prop-types';
 import styles from './SongItem.module.scss';
 
 const cx = classNames.bind(styles);

@@ -5,5 +5,6 @@ const routes = {
 	radio: '/radio',
 	follow: '/follow',
 	album: '/album/:id',
+	singer: '/singer/:id',
 };
 export default routes;

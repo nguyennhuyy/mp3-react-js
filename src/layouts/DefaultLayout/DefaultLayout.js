@@ -1,12 +1,9 @@
-import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import propTypes from 'prop-types';
-
-import styles from './DefaultLayout.module.scss';
+import Playing from '../../components/Playing/Playing';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-import { Songs } from '../../components/Context';
-import Playing from '../../components/Playing/Playing';
+import styles from './DefaultLayout.module.scss';
 
 const cx = classNames.bind(styles);
 function DefaultLayout({ children }) {
