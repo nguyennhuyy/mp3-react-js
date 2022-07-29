@@ -1,13 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import classNames from 'classnames/bind';
-import styles from './Search.module.scss';
 import HeadlessTippy from '@tippyjs/react/headless';
-
-import { makeServer } from '../../../../fakeApi';
-import { playSong } from '../../../../redux/Action';
-import TippyWrapper from '../../TippyWrapper/TippyWrapper';
+import classNames from 'classnames/bind';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import SearchItem from '../../../../components/SongItem/SongItem';
+import { makeServer } from '../../../../fakeApi';
+import { playSong } from '../../../../redux/slices';
+import TippyWrapper from '../../TippyWrapper/TippyWrapper';
+import styles from './Search.module.scss';
+
 makeServer();
 
 const cx = classNames.bind(styles);

@@ -4,7 +4,7 @@ const routes = {
 	zingchart: '/zingchart',
 	radio: '/radio',
 	follow: '/follow',
-	album: '/album/:id',
+	album: '/album/:title/:id.html',
 	singer: '/singer/:id',
 };
 export default routes;

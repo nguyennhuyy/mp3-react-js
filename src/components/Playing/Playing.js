@@ -1,16 +1,16 @@
 import classNames from 'classnames/bind';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { data } from '../../data';
-import { playSong } from '../../redux/Action';
+import { playSong } from '../../redux/slices';
+import { useReduxSelector } from '../../redux/useReduxSelector';
 import SongPlaying from '../SongPlaying';
 import styles from './Playing.module.scss';
-
 const cx = classNames.bind(styles);
 function Playing() {
 	const dispatch = useDispatch();
-	const songs = useSelector((item) => item.songReducer.songs);
+	const { songs } = useReduxSelector();
 	const songIdNext = data.songs.find((item) => {
 		if (songs) {
 			return item.id == +songs.id + 1;
@@ -43,22 +43,24 @@ function Playing() {
 			dispatch(playSong(data.songs[currentLength]));
 		}
 	};
-	return (
-		<AudioPlayer
-			className={cx('wrapper')}
-			layout='stacked-reverse'
-			src={songs?.music}
-			preload='auto'
-			loop={true}
-			header={<SongPlaying data={songs} />}
-			autoPlay={false}
-			showFilledVolume
-			showSkipControls={true}
-			showJumpControls={false}
-			onClickNext={handleNextSong}
-			onClickPrevious={handlePrevSong}
-		/>
-	);
+	if (songs) {
+		return (
+			<AudioPlayer
+				className={cx('wrapper')}
+				layout='stacked-reverse'
+				src={songs?.music}
+				preload='auto'
+				loop={true}
+				header={<SongPlaying data={songs} />}
+				autoPlay={false}
+				showFilledVolume
+				showSkipControls={true}
+				showJumpControls={false}
+				onClickNext={handleNextSong}
+				onClickPrevious={handlePrevSong}
+			/>
+		);
+	}
 }
 
 export default Playing;

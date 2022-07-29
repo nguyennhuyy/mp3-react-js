@@ -32,7 +32,7 @@ function AlbumItem({ data, onClick, ...passProps }) {
 				</div>
 			</div>
 
-			<Link to={`/album/${removeSpacing(data.album)}.html`}>
+			<Link to={`/album/${removeSpacing(data.album)}/${data.path_key}.html`}>
 				<div className={cx('album-desc')}>
 					<span className={cx('album-title')}>{data.album}</span>
 					<p>{data.description || data.all_singer}</p>
