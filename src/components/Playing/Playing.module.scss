@@ -44,3 +44,14 @@
 		margin: 0;
 	}
 }
+:global(.rhap_volume-bar-area) {
+	:global(.rhap_volume-bar) {
+		background-color: rgba(0, 0, 0, 0.1);
+		:global(.rhap_volume-indicator) {
+			opacity: 0;
+		}
+		:global(.rhap_volume-filled) {
+			background-color: var(--purple-primary);
+		}
+	}
+}

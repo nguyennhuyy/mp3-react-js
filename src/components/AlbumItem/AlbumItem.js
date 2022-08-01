@@ -1,6 +1,7 @@
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import propTypes from 'prop-types';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { removeSpacing } from '../removeSpacing/removeSpacing';
 import styles from './AlbumItem.module.scss';
@@ -11,6 +12,10 @@ function AlbumItem({ data, onClick, ...passProps }) {
 		onClick,
 		...passProps,
 	};
+	useEffect(() => {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}, []);
 	return (
 		<div className={cx('wrapper')} {...props}>
 			<div className={cx('album-img')}>

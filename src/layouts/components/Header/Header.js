@@ -1,19 +1,18 @@
-import classNames from 'classnames/bind';
-import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
+import HeadlessTippy from '@tippyjs/react/headless';
+import classNames from 'classnames/bind';
 import { useRef } from 'react';
-
+import 'tippy.js/dist/tippy.css';
 import { ThemeIcon } from '../../../assets/icons/Icons';
-import styles from './Header.module.scss';
-import Search from './Search/Search';
-import TippyWrapper from '../TippyWrapper';
-import HeaderMenu from './HeaderMenu/HeaderMenu';
 import Avatar from '../../../assets/images/avatar.jpg';
+import TippyWrapper from '../TippyWrapper';
+import styles from './Header.module.scss';
+import HeaderMenu from './HeaderMenu/HeaderMenu';
 import {
-	ListMenuItemSetting,
-	ListMenuItemAvatar,
+	ListMenuItemAvatar, ListMenuItemSetting
 } from './HeaderMenu/ListHeaderMenuItem';
+import Search from './Search/Search';
+
 const cx = classNames.bind(styles);
 
 function Header() {

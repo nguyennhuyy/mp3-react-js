@@ -43,6 +43,7 @@ function Playing() {
 			dispatch(playSong(data.songs[currentLength]));
 		}
 	};
+
 	if (songs) {
 		return (
 			<AudioPlayer
@@ -50,7 +51,7 @@ function Playing() {
 				layout='stacked-reverse'
 				src={songs?.music}
 				preload='auto'
-				loop={true}
+				loop={false}
 				header={<SongPlaying data={songs} />}
 				autoPlay={false}
 				showFilledVolume

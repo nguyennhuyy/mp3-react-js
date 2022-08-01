@@ -6,6 +6,7 @@ import Follow from '../pages/Follow';
 import Profile from '../pages/Profile';
 import DetailAlbum from '../components/DetailAlbum';
 import Singer from '../components/Singer/Singer';
+import { exact } from 'prop-types';
 export const publicRoutes = [
 	{
 		path: config.routes.profile,
@@ -32,6 +33,7 @@ export const publicRoutes = [
 		component: DetailAlbum,
 	},
 	{
+		exact: exact,
 		path: config.routes.singer,
 		component: Singer,
 	},

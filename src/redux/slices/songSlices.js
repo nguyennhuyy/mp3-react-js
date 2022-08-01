@@ -4,8 +4,8 @@ export const songSlices = createSlice({
 	name: 'songs',
 	initialState: {
 		isLoading: false,
-		songs: [],
-		songList: [],
+		songs: null,
+		songList: null,
 	},
 	reducers: {
 		playSong: (state, action) => {

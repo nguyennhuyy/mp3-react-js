@@ -11,6 +11,7 @@ function App() {
 						return (
 							<Route
 								key={key}
+								exact={item.exact}
 								path={item.path}
 								element={
 									<DefaultLayout>

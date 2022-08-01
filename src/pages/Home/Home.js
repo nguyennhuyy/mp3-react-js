@@ -12,21 +12,30 @@ import AlbumMedia from '../../components/AlbumMedia/AlbumMedia';
 import Albums from '../../components/Albums';
 import Button from '../../components/Button';
 import Chart from '../../components/Chart';
+import Event from '../../components/Event';
+import Radio from '../../components/Radio/Radio';
+import { removeSpacing } from '../../components/removeSpacing/removeSpacing';
 import SongItem from '../../components/SongItem/SongItem';
 import {
-	detailAlbum,
 	fetchAlbumMedia,
 	fetchAlbums,
 	fetchAlbumToday,
+	fetchEvent,
+	fetchRadio,
+	fetchSinger,
 	fetchSongs,
 	playSong,
 } from '../../redux/slices';
 import { useReduxSelector } from '../../redux/useReduxSelector';
+import Footer from './Footer';
+import { ListImageFooter } from './Footer/ListImage';
 import styles from './Home.module.scss';
+
 const cx = classNames.bind(styles);
 
 function Home() {
-	const { listSong, albums, albumToday, albumMedia } = useReduxSelector();
+	const { listSong, albums, albumMedia, radio, singer, event } =
+		useReduxSelector();
 	const dispatch = useDispatch();
 	const [status, setStatus] = useState(true);
 	const listSongRef = useRef();
@@ -39,6 +48,9 @@ function Home() {
 		dispatch(fetchAlbums());
 		dispatch(fetchAlbumToday());
 		dispatch(fetchAlbumMedia());
+		dispatch(fetchRadio());
+		dispatch(fetchSinger());
+		dispatch(fetchEvent());
 	}, []);
 
 	const handleViewAll = () => {
@@ -64,7 +76,7 @@ function Home() {
 		dispatch(playSong(data));
 	};
 
-	if (albums && albumMedia && albumToday && listSong) {
+	if (albums && albumMedia && listSong && radio && singer && event) {
 		return (
 			<div className={cx('wrapper')}>
 				<Swiper
@@ -133,8 +145,8 @@ function Home() {
 					</div>
 				</div>
 				<Albums title='Lựa Chọn Hôm Nay'>
-					{albumToday.data.map((item, index) => {
-						if (index < 5) {
+					{albums.data.map((item, index) => {
+						if (index > 5 && index < 11) {
 							return <AlbumItem key={item.id} data={item} />;
 						}
 					})}
@@ -178,23 +190,66 @@ function Home() {
 				<div className={cx('singer')}>
 					<Swiper
 						className={cx('swiper')}
-						slidesPerView={6}
+						slidesPerView={7}
 						spaceBetween={30}
 						loop={true}
 						loopFillGroupWithBlank={true}
-						autoplay={{
-							delay: 3000,
-							disableOnInteraction: false,
-						}}
 						navigation={true}
 						modules={[Autoplay, Navigation]}>
-						{ListImgSwiper.map((item, key) => (
-							<SwiperSlide key={key} className={cx('swiper-image')}>
-								<img src={item.url} alt={item.alt} />
+						{singer.data.map((item, key) => (
+							<SwiperSlide key={key} className={cx('swiper-image-2')}>
+								<Link to={removeSpacing(item.singer)}>
+									<img src={item.big_thumbnail} alt={item.alt} />
+								</Link>
 							</SwiperSlide>
 						))}
 					</Swiper>
 				</div>
+				<div className={cx('radio')}>
+					<div className={cx('top-radio')}>
+						<h3 className={cx('radio-title')}>Radio Nổi Bật</h3>
+						<Button
+							title='Tất Cả'
+							small
+							className={cx('no-active')}
+							iConRight={<i className={cx('icon-btn', 'ic-go-right')}></i>}
+						/>
+					</div>
+					<Swiper
+						className={cx('swiper')}
+						slidesPerView={7}
+						spaceBetween={30}
+						loop={true}
+						loopFillGroupWithBlank={true}
+						navigation={true}
+						modules={[Autoplay, Navigation]}>
+						{radio.data.map((item, key) => (
+							<SwiperSlide key={key} className={cx('swiper-image-2')}>
+								<Radio data={item} />
+							</SwiperSlide>
+						))}
+					</Swiper>
+				</div>
+				<div className={cx('event')}>
+					<h3 className={cx('event-title')}>Sự Kiện</h3>
+					<div className={cx('event-container')}>
+						{event.data.map((item, index) => {
+							if (index < 3) {
+								return <Event key={item.id} data={item} />;
+							}
+						})}
+					</div>
+				</div>
+				<footer className={cx('footer')}>
+					<h3 className={cx('footer-title')}>ĐỐI TÁC ÂM NHẠC</h3>
+					<div className={cx('footer-multiline')}>
+						{ListImageFooter.map((item) => (
+							<div className={cx('footer-item')}>
+								<Footer key={item.id} data={item} />
+							</div>
+						))}
+					</div>
+				</footer>
 			</div>
 		);
 	}

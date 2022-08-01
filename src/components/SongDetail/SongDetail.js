@@ -7,6 +7,7 @@ function SongDetail({ data, onClick, ...passProps }) {
 		onClick,
 		...passProps,
 	};
+
 	return (
 		<div className={cx('wrapper')} {...props}>
 			<div className={cx('content-left')}>

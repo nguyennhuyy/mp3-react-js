@@ -3,11 +3,20 @@ import { combineReducers } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
-import { albumSlices, songSlices } from '../slices';
+import {
+	albumSlices,
+	eventSlices,
+	radioSlices,
+	singerSlices,
+	songSlices,
+} from '../slices';
 
 const rootReducer = combineReducers({
 	songs: songSlices.reducer,
 	albums: albumSlices.reducer,
+	radio: radioSlices.reducer,
+	singer: singerSlices.reducer,
+	event: eventSlices.reducer,
 });
 const persistConfig = {
 	key: 'root',

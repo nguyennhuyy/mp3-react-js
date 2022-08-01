@@ -5,3 +5,6 @@ export const detailAlbumData = (state) => state.albums.detailAlbum;
 export const albumsData = (state) => state.albums.albumList;
 export const albumTodayData = (state) => state.albums.albumTodayList;
 export const albumMediaData = (state) => state.albums.albumMediaList;
+export const radioData = (state) => state.radio.radio;
+export const singerData = (state) => state.singer.singers;
+export const eventData = (state) => state.event.event;

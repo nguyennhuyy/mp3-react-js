@@ -4,6 +4,9 @@ import {
 	albumsData,
 	albumTodayData,
 	detailAlbumData,
+	eventData,
+	radioData,
+	singerData,
 	songCurrent,
 	songData,
 } from './index';
@@ -14,6 +17,9 @@ const useReduxSelector = () => {
 	const albums = useSelector(albumsData);
 	const albumToday = useSelector(albumTodayData);
 	const albumMedia = useSelector(albumMediaData);
+	const radio = useSelector(radioData);
+	const singer = useSelector(singerData);
+	const event = useSelector(eventData);
 	return {
 		songs,
 		listSong,
@@ -21,6 +27,9 @@ const useReduxSelector = () => {
 		albums,
 		albumToday,
 		albumMedia,
+		radio,
+		singer,
+		event,
 	};
 };
 
