@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Autoplay, Navigation } from 'swiper';
@@ -13,7 +13,7 @@ import Albums from '../../components/Albums';
 import Button from '../../components/Button';
 import Chart from '../../components/Chart';
 import Event from '../../components/Event';
-import Radio from '../../components/Radio/Radio';
+import RadioItem from '../../components/Radio/RadioItem';
 import { removeSpacing } from '../../components/removeSpacing/removeSpacing';
 import SongItem from '../../components/SongItem/SongItem';
 import {
@@ -24,7 +24,7 @@ import {
 	fetchRadio,
 	fetchSinger,
 	fetchSongs,
-	playSong,
+	playSong
 } from '../../redux/slices';
 import { useReduxSelector } from '../../redux/useReduxSelector';
 import Footer from './Footer';
@@ -37,11 +37,8 @@ function Home() {
 	const { listSong, albums, albumMedia, radio, singer, event } =
 		useReduxSelector();
 	const dispatch = useDispatch();
-	const [status, setStatus] = useState(true);
 	const listSongRef = useRef();
 	const listAlbumRef = useRef();
-	const refSong = useRef();
-	const refAlbum = useRef();
 
 	useEffect(() => {
 		dispatch(fetchSongs());
@@ -52,16 +49,6 @@ function Home() {
 		dispatch(fetchSinger());
 		dispatch(fetchEvent());
 	}, []);
-
-	const handleViewAll = () => {
-		if (status) {
-			listSongRef.current.style.height = '100%';
-			setStatus(false);
-		} else {
-			listSongRef.current.style.height = '220px';
-			setStatus(true);
-		}
-	};
 
 	const handleShowSong = () => {
 		listSongRef.current.style.display = 'grid';
@@ -110,32 +97,38 @@ function Home() {
 					<h3 className={cx('section-title')}>Mới Phát Hành</h3>
 					<div className={cx('section-select-song')}>
 						<div className={cx('section-left')}>
-							<div ref={refSong} onClick={handleShowSong}>
+							<div onClick={handleShowSong}>
 								<Button title='Bài hát' small className={cx('active')} />
 							</div>
-							<div ref={refAlbum} onClick={handleShowAlbum}>
+							<div onClick={handleShowAlbum}>
 								<Button title='Album' small className={cx('active-border')} />
 							</div>
 						</div>
-						<div className={cx('section-right')} onClick={handleViewAll}>
-							<Button
-								title={status ? 'Tất Cả' : 'Thu Gọn'}
-								small
-								className={cx('no-active')}
-								iConRight={<i className={cx('icon-btn', 'ic-go-right')}></i>}
-							/>
+						<div className={cx('section-right')}>
+							<Link to='/nhacmoi'>
+								<Button
+									title='Tất Cả'
+									small
+									className={cx('no-active')}
+									iConRight={<i className={cx('icon-btn', 'ic-go-right')}></i>}
+								/>
+							</Link>
 						</div>
 					</div>
 
 					<div ref={listSongRef} className={cx('list-new-song')}>
-						{listSong.data.map((item) => (
-							<SongItem
-								key={item.id}
-								data={item}
-								active
-								onClick={() => handlePlaySong(item)}
-							/>
-						))}
+						{listSong.data.map((item, index) => {
+							if (index < 12) {
+								return (
+									<SongItem
+										key={item.id}
+										data={item}
+										active
+										onClick={() => handlePlaySong(item)}
+									/>
+								);
+							}
+						})}
 					</div>
 
 					<div ref={listAlbumRef} className={cx('list-new-song-2')}>
@@ -146,7 +139,7 @@ function Home() {
 				</div>
 				<Albums title='Lựa Chọn Hôm Nay'>
 					{albums.data.map((item, index) => {
-						if (index > 5 && index < 11) {
+						if (index > 4 && index < 10) {
 							return <AlbumItem key={item.id} data={item} />;
 						}
 					})}
@@ -164,6 +157,8 @@ function Home() {
 								if (index < 3) {
 									return (
 										<SongItem
+											countNumber
+											index={index}
 											key={item.id}
 											data={item}
 											active
@@ -225,7 +220,7 @@ function Home() {
 						modules={[Autoplay, Navigation]}>
 						{radio.data.map((item, key) => (
 							<SwiperSlide key={key} className={cx('swiper-image-2')}>
-								<Radio data={item} />
+								<RadioItem data={item} />
 							</SwiperSlide>
 						))}
 					</Swiper>
@@ -244,8 +239,8 @@ function Home() {
 					<h3 className={cx('footer-title')}>ĐỐI TÁC ÂM NHẠC</h3>
 					<div className={cx('footer-multiline')}>
 						{ListImageFooter.map((item) => (
-							<div className={cx('footer-item')}>
-								<Footer key={item.id} data={item} />
+							<div className={cx('footer-item')} key={item.id}>
+								<Footer data={item} />
 							</div>
 						))}
 					</div>

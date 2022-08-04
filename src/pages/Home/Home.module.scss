@@ -19,6 +19,7 @@
 .swiper {
 	width: auto;
 	margin-top: 20px;
+	display: flex;
 	&:hover {
 		:global(.swiper-button-prev),
 		:global(.swiper-button-next) {
@@ -80,7 +81,6 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 10px;
-	height: 220px;
 	overflow: hidden;
 }
 
@@ -135,7 +135,7 @@
 		.song-chart {
 			display: flex;
 			flex-direction: column;
-			width: 33.333%;
+			width: 40%;
 			margin-top: 20px;
 		}
 		.button-chart {
@@ -193,7 +193,6 @@
 		text-transform: uppercase;
 		color: var(--text-secondary);
 		margin-bottom: 30px;
-		font-family: 'Inter', sans-serif;
 	}
 }
 .footer-multiline {

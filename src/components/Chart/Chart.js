@@ -1,17 +1,17 @@
-import { Line } from 'react-chartjs-2';
-import classNames from 'classnames/bind';
-import styles from './Chart.module.scss';
-
 import {
-	Chart as ChartJs,
 	CategoryScale,
+	Chart as ChartJs,
+	Legend,
 	LinearScale,
-	PointElement,
 	LineElement,
+	PointElement,
 	Title,
 	Tooltip,
-	Legend,
 } from 'chart.js';
+import classNames from 'classnames/bind';
+import { Line } from 'react-chartjs-2';
+import styles from './Chart.module.scss';
+
 const cx = classNames.bind(styles);
 
 function Chart() {

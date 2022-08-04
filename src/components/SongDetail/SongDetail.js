@@ -1,15 +1,19 @@
+import propTypes from 'prop-types';
 import classNames from 'classnames/bind';
+import { useReduxSelector } from '../../redux/useReduxSelector';
 import styles from './SongDetail.module.scss';
-
 const cx = classNames.bind(styles);
 function SongDetail({ data, onClick, ...passProps }) {
+	const { songs } = useReduxSelector();
+
 	const props = {
 		onClick,
 		...passProps,
 	};
-
 	return (
-		<div className={cx('wrapper')} {...props}>
+		<div
+			className={cx('wrapper', `${songs.id == data.id && 'active'}`)}
+			{...props}>
 			<div className={cx('content-left')}>
 				<i className={cx('ic-music', 'ic-song')}></i>
 				<div className={cx('content-img')}>
@@ -18,9 +22,19 @@ function SongDetail({ data, onClick, ...passProps }) {
 						className={cx('image')}
 						alt={data.name_song}
 					/>
+
 					<button className={cx('btn-play')}>
 						<i className={cx('ic-play', 'icon-play')}></i>
 					</button>
+
+					{songs.id == data.id && (
+						<div className={cx('action-playing')}>
+							<img
+								className={cx('action-play')}
+								src='https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/icons/icon-playing.gif'
+							/>
+						</div>
+					)}
 				</div>
 				<div className={cx('song-info')}>
 					<span className={cx('title')}>{data.name_song}</span>
@@ -36,5 +50,10 @@ function SongDetail({ data, onClick, ...passProps }) {
 		</div>
 	);
 }
+
+SongDetail.propTypes = {
+	data: propTypes.object.isRequired,
+	onClick: propTypes.func,
+};
 
 export default SongDetail;

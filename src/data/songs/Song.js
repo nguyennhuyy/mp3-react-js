@@ -38,6 +38,26 @@ import song37 from './973052447104784208.mp3'; //Welcome to the Party
 import song38 from './3697102329238780744.mp3'; //Diamonds
 import song39 from './6109568354610768521.mp3'; //Found You
 import song40 from './5042745650223939520.mp3'; //Serious
+import song41 from './6849326238649443168.mp3'; //Quên đặt tên
+import song42 from './8583492183884478292.mp3'; //Tình là thế
+import song43 from './1421616785655929777.mp3'; //Thành phố mưa rơi
+import song44 from './2598057537356516125.mp3'; //Có những ngày
+import song45 from './1034786899322224731.mp3'; //Thich Thich
+import song46 from './5131304184053265329.mp3'; //Gác Lại Âu Lo
+import song47 from './3329983269511390113.mp3'; //Phải chăng em đã yêu
+import song48 from './5785945660179388680.mp3'; //Thích em hơi nhiều
+import song49 from './390350612642495996.mp3'; //chạy khỏi thế giới này
+import song50 from './2236040966066570669.mp3'; //Giá như ta
+import song51 from './953079085263752134.mp3'; //Tôi muốn làm cái cây
+import song52 from './9184207551753734932.mp3'; //Mình yêu đến đây thôi
+import song53 from './139794210815443852.mp3'; //call me maybe
+import song54 from './7905670056900035555.mp3'; //Say So
+import song55 from './6865965518570762694.mp3'; //Kiss me more
+import song56 from './1446587493885409037.mp3'; //Timber
+import song57 from './1415781704679369646.mp3'; //Mama Mia
+import song58 from './1668362555430124451.mp3'; //Em là châu báu
+import song59 from './3782330321743591703.mp3'; //Breakfast
+import song60 from './1023182095096648874.mp3'; //Simple Love
 
 export const Song = {
 	song1,
@@ -80,4 +100,24 @@ export const Song = {
 	song38,
 	song39,
 	song40,
+	song41,
+	song42,
+	song43,
+	song44,
+	song45,
+	song46,
+	song47,
+	song48,
+	song49,
+	song50,
+	song51,
+	song52,
+	song53,
+	song54,
+	song55,
+	song56,
+	song57,
+	song58,
+	song59,
+	song60,
 };

@@ -1,0 +1,36 @@
+.wrapper {
+	:global(.swiper-button-prev),
+	:global(.swiper-button-next) {
+		width: 35px;
+		height: 35px;
+		border-radius: 50%;
+		background-color: white;
+		opacity: 0;
+	}
+	:global(.swiper-button-prev::after),
+	:global(.swiper-button-next::after) {
+		color: black;
+		font-size: 2rem;
+	}
+	user-select: none;
+}
+
+.swiper {
+	width: auto;
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	&:hover {
+		:global(.swiper-button-prev),
+		:global(.swiper-button-next) {
+			opacity: 1;
+		}
+	}
+}
+.swiper-image-2 {
+	cursor: pointer;
+	& img {
+		height: auto;
+		object-fit: contain;
+	}
+}

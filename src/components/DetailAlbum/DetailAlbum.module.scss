@@ -3,6 +3,20 @@
 	flex-direction: column;
 	user-select: none;
 	padding-bottom: 90px;
+	:global(.swiper-button-prev),
+	:global(.swiper-button-next) {
+		width: 35px;
+		height: 35px;
+		border-radius: 50%;
+		background-color: white;
+		opacity: 0;
+	}
+	:global(.swiper-button-prev::after),
+	:global(.swiper-button-next::after) {
+		color: black;
+		font-size: 2rem;
+	}
+	user-select: none;
 }
 
 .container {
@@ -78,6 +92,7 @@
 		color: var(--text-secondary);
 		font-size: 1.2rem;
 		line-height: 1.75;
+		text-align: center;
 	}
 }
 
@@ -101,5 +116,31 @@
 		.albums {
 			margin-right: auto;
 		}
+	}
+}
+//radio
+.radio-title {
+	margin: 24px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.swiper {
+	width: auto;
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	&:hover {
+		:global(.swiper-button-prev),
+		:global(.swiper-button-next) {
+			opacity: 1;
+		}
+	}
+}
+.swiper-image-2 {
+	cursor: pointer;
+	& img {
+		height: auto;
+		object-fit: contain;
 	}
 }

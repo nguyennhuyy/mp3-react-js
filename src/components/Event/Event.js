@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import propTypes from 'prop-types';
 import Button from '../Button';
 import styles from './Event.module.scss';
 
@@ -30,5 +31,9 @@ function Event({ data }) {
 		</div>
 	);
 }
+
+Event.propTypes = {
+	data: propTypes.object.isRequired,
+};
 
 export default Event;

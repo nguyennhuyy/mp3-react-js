@@ -1,19 +1,62 @@
 .wrapper {
 	display: flex;
+	min-width: 320px;
 	width: 100%;
 	flex-direction: row;
 	align-items: center;
 	padding: 8px 10px;
+	height: 70px;
 	cursor: pointer;
 	&:hover {
 		background-color: var(--item-bg-hover);
-		border-radius: 4px;
+		border-radius: 6px;
 		.btn-play {
 			display: block;
 		}
 		.icon-more {
 			display: block;
 		}
+		.song-time {
+			display: none;
+		}
+	}
+	&:nth-child(1) {
+		.number-item {
+			-webkit-text-stroke: 1px #4a90e2;
+		}
+	}
+	&:nth-child(2) {
+		.number-item {
+			-webkit-text-stroke: 1px #50e3c2;
+		}
+	}
+
+	&:nth-child(3) {
+		.number-item {
+			-webkit-text-stroke: 1px #e35050;
+		}
+	}
+}
+.border-bottom {
+	&.wrapper {
+		border-bottom: 1px solid var(--btn-play-hover);
+	}
+}
+.number {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 32px;
+	margin-right: 10px;
+	color: var(--song-item-action);
+
+	.number-item {
+		font-weight: 700;
+		text-align: center;
+		width: 60px;
+		color: rgba(74, 144, 226, 0);
+		-webkit-text-stroke: 1.5px var(--black);
+		opacity: 0.7;
 	}
 }
 
@@ -50,6 +93,24 @@
 		font-size: 2rem;
 		color: var(--white);
 	}
+	.action-playing {
+		position: absolute;
+		top: 0;
+		border-radius: 4px;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--song-item-action);
+
+		.action-play {
+			width: 20px;
+			height: 20px;
+			object-fit: cover;
+		}
+	}
 }
 .result-desc {
 	display: flex;
@@ -59,17 +120,33 @@
 	justify-content: center;
 	line-height: 2rem;
 	width: 70%;
+	margin-right: -30%;
 	.name-song {
 		font-size: 1.5rem;
 		color: var(--black);
 		font-weight: 600;
+		width: 80%;
 		text-align: left;
-		word-wrap: break-word;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 	.name-singer {
 		font-size: 1.3rem;
 		color: var(--text-secondary);
+		text-align: left;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
+}
+.detail-songs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-grow: 1;
+	color: var(--song-item-action);
+	font-size: 1.2rem;
 }
 
 .active {
@@ -91,12 +168,29 @@
 .icon-more {
 	margin-left: auto;
 	color: var(--text-primary);
-	padding: 8px 9px;
 	border-radius: 50%;
 	margin-right: 5px;
 	display: none;
 
 	&:hover {
 		background-color: var(--alpha-bg);
+	}
+}
+
+//active action
+.action {
+	&.wrapper {
+		background-color: var(--alpha-bg);
+		border-radius: 6px;
+	}
+	&:hover {
+		& .btn-play {
+			display: none;
+		}
+	}
+}
+.active-border {
+	&.wrapper {
+		border-bottom: 1px solid var(--border-secondary);
 	}
 }

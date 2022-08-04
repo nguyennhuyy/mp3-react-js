@@ -44,6 +44,17 @@ function Playing() {
 		}
 	};
 
+	const handlePlayNextSong = () => {
+		if (songs) {
+			dispatch(playSong(songIdNext));
+		} else {
+			dispatch(playSong(data.songs[0]));
+		}
+		if (songs.id > data.songs.length - 1) {
+			dispatch(playSong(data.songs[0]));
+		}
+	};
+
 	if (songs) {
 		return (
 			<AudioPlayer
@@ -54,11 +65,12 @@ function Playing() {
 				loop={false}
 				header={<SongPlaying data={songs} />}
 				autoPlay={false}
-				showFilledVolume
+				showFilledVolume={true}
 				showSkipControls={true}
 				showJumpControls={false}
 				onClickNext={handleNextSong}
 				onClickPrevious={handlePrevSong}
+				onEnded={() => handlePlayNextSong()}
 			/>
 		);
 	}

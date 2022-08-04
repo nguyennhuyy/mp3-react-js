@@ -1,0 +1,20 @@
+.wrapper {
+	padding-bottom: 200px;
+	.box-heading {
+		margin: 20px 0 40px 0;
+		.heading-chart {
+			font-size: 4rem;
+			color: var(--text-hover);
+			text-transform: none;
+		}
+	}
+}
+.rank-songs {
+	margin-top: 30px;
+}
+.top-hundred {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+}

@@ -5,6 +5,7 @@
 	border-radius: 8px;
 	justify-content: space-between;
 	cursor: pointer;
+	border-bottom: 1px solid var(--border-secondary);
 	&:hover {
 		background-color: var(--alpha-bg);
 	}
@@ -57,10 +58,34 @@
 		font-size: 1.4rem;
 		font-weight: 500;
 		line-height: 1.4;
+		.title {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 		.singer {
 			font-size: 1.2rem;
 			color: var(--text-secondary);
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
+	}
+}
+.action-playing {
+	position: absolute;
+	top: 0;
+	border-radius: 4px;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--song-item-action);
+
+	.action-play {
+		width: 20px;
+		height: 20px;
+		object-fit: cover;
 	}
 }
 
@@ -78,5 +103,19 @@
 	.time {
 		font-size: 1.2rem;
 		color: var(--text-secondary);
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+//active
+.active {
+	&.wrapper {
+		background-color: var(--alpha-bg);
+	}
+	&:hover {
+		& .btn-play {
+			display: none;
+		}
 	}
 }

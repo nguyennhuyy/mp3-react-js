@@ -2,9 +2,13 @@ import classNames from 'classnames/bind';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { Autoplay, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import RadioItem from '../../components/Radio/RadioItem';
 import {
 	fetchAlbums,
 	fetchAlbumToday,
+	fetchRadio,
 	fetchSongs,
 	playSong,
 } from '../../redux/slices';
@@ -13,23 +17,24 @@ import AlbumItem from '../AlbumItem';
 import Albums from '../Albums';
 import SongDetail from '../SongDetail';
 import styles from './DetailAlbum.module.scss';
+
 const cx = classNames.bind(styles);
 
 function DetailAlbum() {
 	const params = useParams();
 	const dispatch = useDispatch();
-
-	const { albumToday, listSong, albums } = useReduxSelector();
+	const { albumToday, listSong, albums, radio } = useReduxSelector();
 	useEffect(() => {
 		dispatch(fetchAlbumToday());
 		dispatch(fetchSongs());
 		dispatch(fetchAlbums());
+		dispatch(fetchRadio());
 	}, []);
 
 	const handlePlaySong = (data) => {
 		dispatch(playSong(data));
 	};
-	if ((albumToday, listSong, albums)) {
+	if (albumToday && listSong && albums) {
 		return (
 			<div className={cx('wrapper')}>
 				<div className={cx('container')}>
@@ -85,9 +90,28 @@ function DetailAlbum() {
 						})}
 					</div>
 				</div>
-				<Albums title='Có Thể Bạn Muốn Nghe'>
+				<div className={cx('container-radio')}>
+					<h2 className={cx('radio-title')}>Radio Nổi Bật</h2>
+					<div className={cx('radio')}>
+						<Swiper
+							className={cx('swiper')}
+							slidesPerView={7}
+							spaceBetween={30}
+							loop={true}
+							loopFillGroupWithBlank={true}
+							navigation={true}
+							modules={[Autoplay, Navigation]}>
+							{radio.data.map((item, key) => (
+								<SwiperSlide key={key} className={cx('swiper-image-2')}>
+									<RadioItem data={item} />
+								</SwiperSlide>
+							))}
+						</Swiper>
+					</div>
+				</div>
+				<Albums title='Có Thể Bạn Quan Tâm'>
 					{albums.data.map((item, index) => {
-						if (index > 5 && index < 11) {
+						if (index > 4 && index < 10) {
 							return <AlbumItem key={item.id} data={item} />;
 						}
 					})}
