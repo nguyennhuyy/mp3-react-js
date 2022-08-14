@@ -9,7 +9,8 @@ import TippyWrapper from '../TippyWrapper';
 import styles from './Header.module.scss';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 import {
-	ListMenuItemAvatar, ListMenuItemSetting
+	ListMenuItemAvatar,
+	ListMenuItemSetting,
 } from './HeaderMenu/ListHeaderMenuItem';
 import Search from './Search/Search';
 
@@ -204,29 +205,38 @@ function Header() {
 					</Tippy>
 				</HeadlessTippy>
 
-				<HeadlessTippy
-					interactive
-					trigger='click'
-					placement='bottom-end'
-					render={(attrs) => (
-						<div className={cx('wrapper-option-2')} tabIndex='-1' {...attrs}>
-							<div className={cx('option-3-item')}>
-								{ListMenuItemAvatar.map((item, key) => (
-									<HeaderMenu
-										key={key}
-										to={item.to}
-										iconLeft={item.iconLeft}
-										title={item.title}
-										className={item.className}
-									/>
-								))}
-							</div>
-						</div>
-					)}>
-					<div className={cx('header-avatar')}>
-						<img src={Avatar} className={cx('avatar')} alt='avatar' />
+				{true ? (
+					<div className={cx('avatar-default')}>
+						<img
+							className={cx('img-default')}
+							src='https://avatar.talk.zdn.vn/default.jpg'
+						/>
 					</div>
-				</HeadlessTippy>
+				) : (
+					<HeadlessTippy
+						interactive
+						trigger='click'
+						placement='bottom-end'
+						render={(attrs) => (
+							<div className={cx('wrapper-option-2')} tabIndex='-1' {...attrs}>
+								<div className={cx('option-3-item')}>
+									{ListMenuItemAvatar.map((item, key) => (
+										<HeaderMenu
+											key={key}
+											to={item.to}
+											iconLeft={item.iconLeft}
+											title={item.title}
+											className={item.className}
+										/>
+									))}
+								</div>
+							</div>
+						)}>
+						<div className={cx('header-avatar')}>
+							<img src={Avatar} className={cx('avatar')} alt='avatar' />
+						</div>
+					</HeadlessTippy>
+				)}
 			</div>
 		</header>
 	);

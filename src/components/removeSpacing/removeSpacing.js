@@ -18,7 +18,7 @@ export function removeSpacing(str, toUpperCase = false) {
 	str = str.trim();
 	str = str.replace(
 		/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g,
-		' '
+		''
 	);
 	str = str.replace(/[\u0300-\u036f]/g, '').replace(/Đ/g, 'D');
 	str = str.replace(/ /g, '-');

@@ -15,8 +15,11 @@ function Sidebar() {
 		<div className={cx('wrapper')}>
 			<div className={cx('logo')}>
 				<Link to='/'>
-					<Logolight width='120px' />
+					<div className={cx('logo-item')}>
+						<Logolight width='120px' />
+					</div>
 				</Link>
+				<div className={cx('logo-res')}></div>
 			</div>
 
 			<div className={cx('sidebar-menu')}>
@@ -77,6 +80,9 @@ function Sidebar() {
 			<div className={cx('create-newlist')}>
 				<i className={cx('icon-add', 'ic-add')}></i>
 				<span className={cx('newlist-title')}>Tạo playlist mới</span>
+			</div>
+			<div className={cx('go-right')}>
+				<i className={cx('icon-add', 'ic-go-right')}></i>
 			</div>
 		</div>
 	);

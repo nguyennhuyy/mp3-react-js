@@ -43,7 +43,7 @@ const ListSideBarMenu = [
 
 const ListSideBarScrollBar = [
 	{
-		to: '/nhacmoi',
+		to: '/newsong',
 		icon: <i className={cx('icon', 'ic-24-NewReleaseTab')}></i>,
 		title: 'Nhạc Mới',
 		playhover: <i className={cx('icon', 'ic-20-Play-Outline')}></i>,

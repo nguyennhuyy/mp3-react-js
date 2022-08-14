@@ -9,6 +9,7 @@
 	overflow: hidden;
 	padding: 10px 0 0 0;
 	margin-right: -2px;
+	position: relative;
 }
 
 .logo {
@@ -18,6 +19,13 @@
 	height: 90px;
 	padding: 0 25px 15px 28px;
 	border-left: 3px solid transparent;
+}
+.logo-res {
+	display: none;
+	margin: 0 auto;
+	width: 45px;
+	height: 45px;
+	background-image: url(https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.7.19/static/media/icon_zing_mp3_60.f6b51045.svg);
 }
 .sidebar-menu {
 	width: 100%;
@@ -118,4 +126,62 @@
 }
 .icon-add {
 	font-size: 1.6rem;
+}
+.go-right {
+	display: none;
+	position: absolute;
+	height: 40px;
+	width: 40px;
+	border-radius: 999px;
+	background-color: var(--alpha-bg);
+	bottom: 10px;
+	align-items: center;
+	justify-content: center;
+}
+//tablet
+@media screen and (min-width: 740px) and (max-width: 1023px)  {
+	.wrapper {
+		width: 70px;
+		background-color: #fff;
+	}
+	.logo {
+		width: 100%;
+		padding: 0;
+		height: 70px;
+	}
+	.logo-item {
+		width: 70px;
+		display: none;
+	}
+	.logo-res {
+		display: flex;
+		margin-bottom: 10px;
+	}
+	.vip-banner-sidebar {
+		display: none;
+	}
+	.create-newlist {
+		display: none;
+	}
+	.sidebar-scrollbar {
+		height: 80px;
+	}
+	.scrollbar-bottom {
+		.scrollbar-title {
+			display: none;
+		}
+	}
+	.go-right {
+		display: flex;
+	}
+}
+
+// mobile
+@media screen and (max-width: 739px) {
+
+}
+
+// pc
+@media screen and (min-width: 1024px) {
+
 }

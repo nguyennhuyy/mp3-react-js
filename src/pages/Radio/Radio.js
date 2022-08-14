@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Developing from '../../components/Developing';
 import RadioItem from '../../components/Radio/RadioItem';
 import { fetchRadio } from '../../redux/slices';
 import { useReduxSelector } from '../../redux/useReduxSelector';
@@ -34,6 +35,7 @@ function Radio() {
 						))}
 					</Swiper>
 				</div>
+				<Developing />
 			</div>
 		);
 	}

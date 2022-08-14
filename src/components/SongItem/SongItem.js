@@ -25,7 +25,7 @@ function SongItem({
 				'wrapper',
 				active,
 				`${songs.id == data.id && 'action'}`,
-				'active-border'
+				className
 			)}
 			{...props}>
 			{countNumber && (

@@ -1303,6 +1303,7 @@ export const data = {
 	singer: [
 		{
 			id: 1,
+			path_key: 'SINGER1',
 			big_thumbnail:
 				'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/hoa-minzy.png',
 			avatar:
@@ -1314,6 +1315,7 @@ export const data = {
 		},
 		{
 			id: 2,
+			path_key: 'SINGER2',
 			big_thumbnail:
 				'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/mr-siro.png',
 			avatar:
@@ -1325,6 +1327,7 @@ export const data = {
 		},
 		{
 			id: 3,
+			path_key: 'SINGER3',
 			big_thumbnail:
 				'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/onlyc.png',
 			avatar:
@@ -1336,6 +1339,7 @@ export const data = {
 		},
 		{
 			id: 4,
+			path_key: 'SINGER4',
 			big_thumbnail:
 				'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/justatee.png',
 			avatar:
@@ -1347,6 +1351,7 @@ export const data = {
 		},
 		{
 			id: 5,
+			path_key: 'SINGER5',
 			big_thumbnail:
 				'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/erik.png',
 			avatar:
@@ -1358,6 +1363,7 @@ export const data = {
 		},
 		{
 			id: 6,
+			path_key: 'SINGER6',
 			big_thumbnail:
 				'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/trinh-thanh-binh.png',
 			avatar:
@@ -1369,6 +1375,7 @@ export const data = {
 		},
 		{
 			id: 7,
+			path_key: 'SINGER7',
 			big_thumbnail:
 				'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/huong-ly.png',
 			avatar:
@@ -1380,6 +1387,7 @@ export const data = {
 		},
 		{
 			id: 8,
+			path_key: 'SINGER8',
 			big_thumbnail:
 				'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/karik.png',
 			avatar:
@@ -1391,6 +1399,7 @@ export const data = {
 		},
 		{
 			id: 9,
+			path_key: 'SINGER9',
 			big_thumbnail:
 				'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/duc-phuc.png',
 			avatar:
@@ -1402,6 +1411,7 @@ export const data = {
 		},
 		{
 			id: 10,
+			path_key: 'SINGER10',
 			big_thumbnail:
 				'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/zma-2021/imgs/chi-dan.png',
 			avatar:

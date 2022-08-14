@@ -22,7 +22,6 @@ function DefaultLayout({ children }) {
 			<Sidebar />
 			<div className={cx('container')} ref={defaultRef}>
 				<Header />
-
 				<div className={cx('content')}>{children}</div>
 			</div>
 			<div className={cx('playing')}>

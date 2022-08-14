@@ -39,7 +39,7 @@ function DetailAlbum() {
 			<div className={cx('wrapper')}>
 				<div className={cx('container')}>
 					{albums.data.map((item) => {
-						if (item.path_key === params.id) {
+						if (item.path_key == params.id) {
 							return (
 								<div className={cx('container-left')} key={item.id}>
 									<div className={cx('detail-thumbnail')}>
@@ -70,7 +70,7 @@ function DetailAlbum() {
 						</div>
 
 						{albums.data.map((item) => {
-							if (item.path_key === params.id) {
+							if (item.path_key == params.id) {
 								return (
 									<div key={item.id}>
 										{item.artists.map((data) => {

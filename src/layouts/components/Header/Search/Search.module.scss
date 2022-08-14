@@ -53,3 +53,27 @@
 		transform: translate(0, -50%);
 	}
 }
+
+// pc
+@media screen and (min-width: 1280px) {
+}
+// laptop
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+}
+// tablet
+@media screen and (min-width: 740px) and (max-width: 1024px) {
+	.wrapper {
+		max-width: 216px;
+	}
+	.input-wrapper {
+		width: 75%;
+		padding-right: 10px;
+	}
+	.icon-close {
+		// right: 2% !important;
+	}
+}
+
+// mobile
+@media screen and (max-width: 739px) {
+}

@@ -54,3 +54,31 @@
 	top: 30%;
 	right: 43%;
 }
+
+// tablet
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+	.wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-left: none;
+		text-align: center;
+		padding: 25px 20px;
+		&.active {
+			border: none;
+			background-color: var(--alpha-bg);
+		}
+	}
+	.sidebar-item-right {
+		display: none;
+	}
+	.icon {
+		padding: 0;
+	}
+	.title {
+		display: none;
+	}
+	.live {
+		display: none;
+	}
+}

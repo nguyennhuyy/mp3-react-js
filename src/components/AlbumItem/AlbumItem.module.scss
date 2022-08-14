@@ -52,7 +52,7 @@
 		display: block;
 	}
 	& > p {
-		margin-top: 8px;
+		margin: 8px 0;
 		user-select: none;
 		font-size: 1.4rem;
 		color: var(--text-secondary);
@@ -93,4 +93,6 @@
 //tippy custom
 .tippy-size {
 	font-size: 1rem;
+}
+@media screen and (min-width: 740px) and (max-width: 1023px) {
 }

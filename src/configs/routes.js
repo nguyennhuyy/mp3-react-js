@@ -5,6 +5,10 @@ const routes = {
 	radio: '/radio',
 	follow: '/follow',
 	album: '/album/:title/:id.html',
-	singer: '/:id',
+	singer: '/:name/:id.html',
+	newsong: '/newsong',
+	top100: '/top100',
+	type: '/theloai',
+	mv: '/mv',
 };
 export default routes;

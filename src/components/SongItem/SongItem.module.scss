@@ -115,17 +115,16 @@
 .result-desc {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-around;
 	align-items: flex-start;
-	text-align: center;
-	justify-content: center;
-	line-height: 2rem;
+	height: 100%;
 	width: 70%;
 	margin-right: -30%;
 	.name-song {
 		font-size: 1.5rem;
 		color: var(--black);
 		font-weight: 600;
-		width: 80%;
+		width: 55%;
 		text-align: left;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -135,6 +134,7 @@
 		font-size: 1.3rem;
 		color: var(--text-secondary);
 		text-align: left;
+		width: 70%;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -193,4 +193,25 @@
 	&.wrapper {
 		border-bottom: 1px solid var(--border-secondary);
 	}
+}
+// pc
+@media screen and (min-width: 1024px) {
+}
+// laptop
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+	.wrapper {
+		width: 100%;
+	}
+}
+// tablet
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+	.wrapper {
+		min-width: 260px;
+	}
+	.name-song {
+		width: 90% !important;
+	}
+}
+// mobile
+@media screen and (max-width: 739px) {
 }

@@ -24,7 +24,7 @@ import {
 	fetchRadio,
 	fetchSinger,
 	fetchSongs,
-	playSong
+	playSong,
 } from '../../redux/slices';
 import { useReduxSelector } from '../../redux/useReduxSelector';
 import Footer from './Footer';
@@ -105,7 +105,7 @@ function Home() {
 							</div>
 						</div>
 						<div className={cx('section-right')}>
-							<Link to='/nhacmoi'>
+							<Link to='/newsong'>
 								<Button
 									title='Tất Cả'
 									small
@@ -161,6 +161,7 @@ function Home() {
 											index={index}
 											key={item.id}
 											data={item}
+											className={cx('active-border')}
 											active
 											onClick={() => handlePlaySong(item)}
 										/>
@@ -185,6 +186,16 @@ function Home() {
 				<div className={cx('singer')}>
 					<Swiper
 						className={cx('swiper')}
+						breakpoints={{
+							576: {
+								width: 576,
+								slidesPerView: 2,
+							},
+							768: {
+								width: 992,
+								slidesPerView: 6,
+							},
+						}}
 						slidesPerView={7}
 						spaceBetween={30}
 						loop={true}
@@ -193,7 +204,8 @@ function Home() {
 						modules={[Autoplay, Navigation]}>
 						{singer.data.map((item, key) => (
 							<SwiperSlide key={key} className={cx('swiper-image-2')}>
-								<Link to={removeSpacing(item.singer)}>
+								<Link
+									to={`${removeSpacing(item.singer)}/${item.path_key}.html`}>
 									<img src={item.big_thumbnail} alt={item.alt} />
 								</Link>
 							</SwiperSlide>
@@ -212,6 +224,16 @@ function Home() {
 					</div>
 					<Swiper
 						className={cx('swiper')}
+						breakpoints={{
+							576: {
+								width: 576,
+								slidesPerView: 2,
+							},
+							768: {
+								width: 992,
+								slidesPerView: 6,
+							},
+						}}
 						slidesPerView={7}
 						spaceBetween={30}
 						loop={true}

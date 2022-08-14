@@ -205,3 +205,59 @@
 		margin-bottom: 30px;
 	}
 }
+
+// mobile : max-width : 739px
+// tablet: min-width: 740px and max-width: 1023px
+// pc : min-width: 1024px
+
+// pc
+@media screen and (min-width: 1024px) {
+}
+// laptop
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+	.container-chart {
+		flex-direction: column-reverse;
+		.song-chart {
+			width: 100% !important;
+		}
+		.button-chart {
+			margin-top: 20px !important;
+		}
+	}
+	.footer-multiline {
+		display: grid !important;
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+// tablet
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+	.list-new-song {
+		grid-template-columns: repeat(2, 1fr);
+		width: 100%;
+	}
+
+	.container-chart {
+		display: flex;
+		flex-direction: column-reverse;
+		.song-chart {
+			width: 100% !important;
+		}
+	}
+
+	.event-container {
+		display: grid !important;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 10;
+	}
+	.button-chart {
+		margin-top: 20px !important;
+	}
+
+	.footer-item {
+		width: 20% !important;
+	}
+}
+
+// mobile
+@media screen and (max-width: 739px) {
+}

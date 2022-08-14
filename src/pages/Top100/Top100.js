@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
 import Developing from '../../components/Developing';
-import styles from './Follow.module.scss';
+import styles from './Top100.module.scss';
 
 const cx = classNames.bind(styles);
-function Follow() {
+function Top100() {
 	return (
 		<div className={cx('wrapper')}>
 			<Developing />
@@ -11,4 +11,4 @@ function Follow() {
 	);
 }
 
-export default Follow;
+export default Top100;

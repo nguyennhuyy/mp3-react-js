@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
 import Developing from '../../components/Developing';
-import styles from './Follow.module.scss';
+import styles from './Type.module.scss';
 
 const cx = classNames.bind(styles);
-function Follow() {
+function Type() {
 	return (
 		<div className={cx('wrapper')}>
 			<Developing />
@@ -11,4 +11,4 @@ function Follow() {
 	);
 }
 
-export default Follow;
+export default Type;
