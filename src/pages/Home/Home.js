@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Autoplay, Navigation } from 'swiper';
@@ -16,16 +16,7 @@ import Event from '../../components/Event';
 import RadioItem from '../../components/Radio/RadioItem';
 import { removeSpacing } from '../../components/removeSpacing/removeSpacing';
 import SongItem from '../../components/SongItem/SongItem';
-import {
-	fetchAlbumMedia,
-	fetchAlbums,
-	fetchAlbumToday,
-	fetchEvent,
-	fetchRadio,
-	fetchSinger,
-	fetchSongs,
-	playSong,
-} from '../../redux/slices';
+import { playSong } from '../../redux/slices';
 import { useReduxSelector } from '../../redux/useReduxSelector';
 import Footer from './Footer';
 import { ListImageFooter } from './Footer/ListImage';
@@ -34,21 +25,12 @@ import styles from './Home.module.scss';
 const cx = classNames.bind(styles);
 
 function Home() {
+	const dispatch = useDispatch();
+
 	const { listSong, albums, albumMedia, radio, singer, event } =
 		useReduxSelector();
-	const dispatch = useDispatch();
 	const listSongRef = useRef();
 	const listAlbumRef = useRef();
-
-	useEffect(() => {
-		dispatch(fetchSongs());
-		dispatch(fetchAlbums());
-		dispatch(fetchAlbumToday());
-		dispatch(fetchAlbumMedia());
-		dispatch(fetchRadio());
-		dispatch(fetchSinger());
-		dispatch(fetchEvent());
-	}, []);
 
 	const handleShowSong = () => {
 		listSongRef.current.style.display = 'grid';

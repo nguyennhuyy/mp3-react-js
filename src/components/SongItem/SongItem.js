@@ -14,19 +14,19 @@ function SongItem({
 	index,
 	...PassProps
 }) {
-	const { songs } = useReduxSelector();
+	const { listSong } = useReduxSelector();
 	const props = {
 		onClick,
 		...PassProps,
 	};
 
-	if (songs) {
+	if (listSong) {
 		return (
 			<div
 				className={cx(
 					'wrapper',
 					active,
-					`${songs.id == data.id && 'action'}`,
+					`${listSong.id == data.id && 'action'}`,
 					className
 				)}
 				{...props}>
@@ -45,7 +45,7 @@ function SongItem({
 					<button className={cx('btn-play')}>
 						<i className={cx('ic-play', 'icon-play')}></i>
 					</button>
-					{songs.id == data.id && (
+					{listSong.id == data.id && (
 						<div className={cx('action-playing')}>
 							<img
 								className={cx('action-play')}
