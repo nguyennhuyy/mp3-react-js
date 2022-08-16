@@ -119,3 +119,15 @@
 		}
 	}
 }
+// mobile
+@media screen and (max-width: 739px) {
+	.content-left {
+		width: 80%;
+	}
+	.content-center {
+		display: none;
+	}
+	.time {
+		width: 100%;
+	}
+}

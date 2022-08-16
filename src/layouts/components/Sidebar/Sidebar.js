@@ -20,6 +20,13 @@ function Sidebar() {
 					</div>
 				</Link>
 				<div className={cx('logo-res')}></div>
+				<div className={cx('box-user')}>
+					<img
+						className={cx('img-default')}
+						src='https://avatar.talk.zdn.vn/default.jpg'
+					/>
+					<span className={cx('user-login')}>Đăng Nhập</span>
+				</div>
 			</div>
 
 			<div className={cx('sidebar-menu')}>

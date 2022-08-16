@@ -70,6 +70,14 @@ function Home() {
 					className={cx('swiper')}
 					slidesPerView={3}
 					spaceBetween={30}
+					breakpoints={{
+						320: {
+							slidesPerView: 1,
+						},
+						769: {
+							slidesPerView: 3,
+						},
+					}}
 					loop={true}
 					loopFillGroupWithBlank={true}
 					autoplay={{
@@ -187,13 +195,14 @@ function Home() {
 					<Swiper
 						className={cx('swiper')}
 						breakpoints={{
-							576: {
-								width: 576,
+							320: {
 								slidesPerView: 2,
 							},
-							768: {
-								width: 992,
-								slidesPerView: 6,
+							739: {
+								slidesPerView: 3,
+							},
+							1024: {
+								slidesPerView: 5,
 							},
 						}}
 						slidesPerView={7}
@@ -225,13 +234,14 @@ function Home() {
 					<Swiper
 						className={cx('swiper')}
 						breakpoints={{
-							576: {
-								width: 576,
+							320: {
 								slidesPerView: 2,
 							},
-							768: {
-								width: 992,
-								slidesPerView: 6,
+							739: {
+								slidesPerView: 3,
+							},
+							1024: {
+								slidesPerView: 5,
 							},
 						}}
 						slidesPerView={7}

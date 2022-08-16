@@ -27,7 +27,7 @@
 	height: 300px;
 	overflow: hidden;
 	position: relative;
-	box-shadow: 0 5px 8px 0rgba (0, 0, 0, 0.2);
+	box-shadow: 0 5px 8px 0 rgba (0, 0, 0, 0.2);
 	border-radius: 10px;
 
 	.image-album {
@@ -99,7 +99,7 @@
 .container-right {
 	margin-left: 20px;
 	width: 100%;
-	height: 70vh;
+	height: 40vh;
 	overflow: hidden;
 	overflow-y: scroll;
 	.title-table {
@@ -142,5 +142,82 @@
 	& img {
 		height: auto;
 		object-fit: contain;
+	}
+}
+// pc
+@media screen and (min-width: 1280px) {
+}
+// laptop
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+	.container {
+		flex-direction: column;
+	}
+	.container-left {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		margin-bottom: 20px;
+		.detail-thumbnail {
+			width: 200px;
+			height: 200px;
+		}
+		.detail-desc {
+			align-items: flex-start;
+			margin-left: 20px;
+			.title-album {
+				padding: 0;
+			}
+		}
+	}
+}
+// tablet
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+	.container {
+		flex-direction: column;
+	}
+	.container-left {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		margin-bottom: 20px;
+		.detail-thumbnail {
+			width: 200px;
+			height: 200px;
+		}
+		.detail-desc {
+			align-items: flex-start;
+			margin-left: 20px;
+			.title-album {
+				padding: 0;
+			}
+		}
+	}
+}
+// mobile
+@media screen and (max-width: 739px) {
+	.container {
+		flex-direction: column;
+	}
+	.container-left {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-self: center;
+		margin-bottom: 20px;
+		.detail-thumbnail {
+			width: 200px;
+			height: 200px;
+		}
+		.detail-desc {
+			align-items: center;
+			margin: 20px 0;
+			.title-album {
+				padding: 0;
+			}
+		}
+	}
+	.container-right {
+		height: unset;
+		overflow-y: unset;
 	}
 }

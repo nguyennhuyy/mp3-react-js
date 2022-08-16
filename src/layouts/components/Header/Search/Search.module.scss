@@ -59,9 +59,16 @@
 }
 // laptop
 @media screen and (min-width: 1024px) and (max-width: 1280px) {
+	.wrapper {
+		max-width: 308px !important;
+	}
+	.input-wrapper {
+		width: 82% !important;
+		padding-right: 10px;
+	}
 }
 // tablet
-@media screen and (min-width: 740px) and (max-width: 1024px) {
+@media screen and (min-width: 740px) and (max-width: 1023px) {
 	.wrapper {
 		max-width: 216px;
 	}
@@ -69,11 +76,17 @@
 		width: 75%;
 		padding-right: 10px;
 	}
-	.icon-close {
-		// right: 2% !important;
-	}
 }
 
 // mobile
 @media screen and (max-width: 739px) {
+	.wrapper {
+		width: 0;
+		background-color: transparent;
+	}
+	.input-wrapper {
+		display: none;
+	}
+	.search-btn-header {
+	}
 }

@@ -23,6 +23,17 @@ function Radio() {
 					<Swiper
 						className={cx('swiper')}
 						slidesPerView={7}
+						breakpoints={{
+							320: {
+								slidesPerView: 2,
+							},
+							739: {
+								slidesPerView: 3,
+							},
+							1024: {
+								slidesPerView: 5,
+							},
+						}}
 						spaceBetween={30}
 						loop={true}
 						loopFillGroupWithBlank={true}

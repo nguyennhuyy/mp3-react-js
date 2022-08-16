@@ -2,9 +2,11 @@ import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
-import { ThemeIcon } from '../../../assets/icons/Icons';
+import Logolight, { ThemeIcon } from '../../../assets/icons/Icons';
 import Avatar from '../../../assets/images/avatar.jpg';
+import Sidebar from '../Sidebar';
 import TippyWrapper from '../TippyWrapper';
 import styles from './Header.module.scss';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
@@ -36,14 +38,27 @@ function Header() {
 		}
 	};
 
+	const handleShowSidebar = () => {};
+
 	return (
 		<header className={cx('wrapper')}>
 			<div className={cx('header-left')}>
+				<div onClick={handleShowSidebar} className={cx('header-sort')}>
+					<i className={cx('icon', 'ic-sort')}></i>
+					<div className={cx('sidebar-res')}></div>
+				</div>
 				<div className={cx('back-btn-header')}>
 					<i className={cx('icon', 'ic-back')}></i>
 				</div>
 				<div className={cx('forward-btn-header')}>
 					<i className={cx('icon', 'ic-forward')}></i>
+				</div>
+				<div className={cx('logo')}>
+					<Link to='/'>
+						<div className={cx('logo-item')}>
+							<Logolight width='120px' />
+						</div>
+					</Link>
 				</div>
 				<Search />
 			</div>

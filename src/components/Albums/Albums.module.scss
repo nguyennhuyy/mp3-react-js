@@ -28,3 +28,9 @@
 		grid-template-columns: repeat(3, 1fr) !important;
 	}
 }
+// mobile
+@media screen and (max-width: 739px) {
+	.content-album {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+}

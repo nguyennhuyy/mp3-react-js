@@ -1,6 +1,6 @@
 .wrapper {
 	display: flex;
-	min-width: 320px;
+	min-width: 380px;
 	width: 100%;
 	flex-direction: row;
 	align-items: center;
@@ -195,18 +195,30 @@
 	}
 }
 // pc
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
+	.wrapper {
+		min-width: 290px !important;
+	}
 }
 // laptop
 @media screen and (min-width: 1024px) and (max-width: 1280px) {
 	.wrapper {
-		width: 100%;
+		min-width: 260px !important;
 	}
 }
 // tablet
 @media screen and (min-width: 740px) and (max-width: 1023px) {
 	.wrapper {
-		min-width: 260px;
+		min-width: 260px !important;
+	}
+	.result-desc {
+		width: 30%;
+	}
+	.detail-songs {
+		margin-left: 30%;
+		.song-album {
+			width: 70%;
+		}
 	}
 	.name-song {
 		width: 90% !important;
@@ -214,4 +226,30 @@
 }
 // mobile
 @media screen and (max-width: 739px) {
+	.wrapper {
+		min-width: 0 !important;
+		&:hover {
+			.icon-more {
+				display: none;
+			}
+		}
+	}
+	.number {
+		font-size: 2rem;
+		.number-item {
+			width: 20px;
+		}
+	}
+	.result-desc {
+		width: 50%;
+	}
+	.detail-songs {
+		justify-content: flex-end;
+	}
+	.song-album {
+		display: none;
+	}
+	.name-song {
+		width: 100% !important;
+	}
 }

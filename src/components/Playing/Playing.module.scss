@@ -48,3 +48,12 @@
 		}
 	}
 }
+@media screen and (max-width: 739px) {
+	:global(.rhap_header) {
+		display: none !important;
+	}
+	:global(.rhap_container) {
+		padding: 10px 20px !important;
+		background-color: #fcfcfc !important;
+	}
+}
