@@ -19,58 +19,61 @@ function SongItem({
 		onClick,
 		...PassProps,
 	};
-	return (
-		<div
-			className={cx(
-				'wrapper',
-				active,
-				`${songs.id == data.id && 'action'}`,
-				className
-			)}
-			{...props}>
-			{countNumber && (
-				<div className={cx('number')}>
-					<span className={cx('number-item')}>{index + 1}</span>
-					<span>-</span>
-				</div>
-			)}
-			<div className={cx('result-image')}>
-				<img
-					src={data.thumbnail}
-					className={cx('image')}
-					alt={data.name_song}
-				/>
-				<button className={cx('btn-play')}>
-					<i className={cx('ic-play', 'icon-play')}></i>
-				</button>
-				{songs.id == data.id && (
-					<div className={cx('action-playing')}>
-						<img
-							className={cx('action-play')}
-							src='https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/icons/icon-playing.gif'
-						/>
+
+	if (songs) {
+		return (
+			<div
+				className={cx(
+					'wrapper',
+					active,
+					`${songs.id == data.id && 'action'}`,
+					className
+				)}
+				{...props}>
+				{countNumber && (
+					<div className={cx('number')}>
+						<span className={cx('number-item')}>{index + 1}</span>
+						<span>-</span>
 					</div>
 				)}
-			</div>
-			<div className={cx('result-desc')}>
-				<p className={cx('name-song')}>{data.name_song}</p>
-				<span className={cx('name-singer')}>{data.name_singer}</span>
-			</div>
-			{detailSong && (
-				<div className={cx('detail-songs')}>
-					<div className={cx('song-album')}>{data.name_album}</div>
-					<div className={cx('song-time')}>{data.time}</div>
+				<div className={cx('result-image')}>
+					<img
+						src={data.thumbnail}
+						className={cx('image')}
+						alt={data.name_song}
+					/>
+					<button className={cx('btn-play')}>
+						<i className={cx('ic-play', 'icon-play')}></i>
+					</button>
+					{songs.id == data.id && (
+						<div className={cx('action-playing')}>
+							<img
+								className={cx('action-play')}
+								src='https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/icons/icon-playing.gif'
+							/>
+						</div>
+					)}
 				</div>
-			)}
-			{active ? (
-				<Tippy content='Khác' className={cx('tippy-more')}>
-					<i className={cx('icon-more', 'ic-more')}></i>
-				</Tippy>
-			) : (
-				''
-			)}
-		</div>
-	);
+				<div className={cx('result-desc')}>
+					<p className={cx('name-song')}>{data.name_song}</p>
+					<span className={cx('name-singer')}>{data.name_singer}</span>
+				</div>
+				{detailSong && (
+					<div className={cx('detail-songs')}>
+						<div className={cx('song-album')}>{data.name_album}</div>
+						<div className={cx('song-time')}>{data.time}</div>
+					</div>
+				)}
+				{active ? (
+					<Tippy content='Khác' className={cx('tippy-more')}>
+						<i className={cx('icon-more', 'ic-more')}></i>
+					</Tippy>
+				) : (
+					''
+				)}
+			</div>
+		);
+	}
 }
 
 SongItem.propTypes = {
