@@ -13,6 +13,10 @@
 	min-width: 660px;
 	padding: 0 var(--padding-main);
 }
+.sidebar-responsive {
+	display: block;
+	transition: all 875ms;
+}
 .logo {
 	display: none;
 	align-items: center;
@@ -35,6 +39,15 @@
 	margin-right: 20px;
 	line-height: 66%;
 	cursor: pointer;
+}
+.icon-sort {
+	font-size: 2.4rem;
+	color: var(--black);
+	line-height: 66%;
+	cursor: pointer;
+}
+.sidebar-res {
+	display: flex;
 }
 .header-right {
 	display: flex;
@@ -213,8 +226,8 @@
 @media screen and (max-width: 739px) {
 	.wrapper {
 		z-index: 2;
-		left: 10px;
-		right: 30px;
+		left: 0;
+		right: 0;
 		background: #fcfcfc;
 		box-shadow: none;
 		min-width: 0;
@@ -224,10 +237,13 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		width: 100%;
 		position: relative;
 	}
 	.header-sort {
-		display: block;
+		display: flex;
+		transform: translateX(50%);
+		padding: 3px;
 	}
 	.logo {
 		display: flex;

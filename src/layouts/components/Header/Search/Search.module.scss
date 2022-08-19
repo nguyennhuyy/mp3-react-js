@@ -83,6 +83,8 @@
 	.wrapper {
 		width: 0;
 		background-color: transparent;
+		display: flex;
+		justify-content: flex-end;
 	}
 	.input-wrapper {
 		display: none;

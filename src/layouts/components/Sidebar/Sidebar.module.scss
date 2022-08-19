@@ -5,7 +5,8 @@
 	max-width: 237px;
 	width: 100%;
 	background-color: var(--sidebar-bg);
-	height: calc(100vh - 88px);
+	height: 100vh;
+	padding-bottom: 88px;
 	overflow: hidden;
 	padding: 10px 0 0 0;
 	margin-right: -2px;
@@ -27,25 +28,7 @@
 	height: 45px;
 	background-image: url(https://zjs.zmdcdn.me/zmp3-desktop/releases/v1.7.19/static/media/icon_zing_mp3_60.f6b51045.svg);
 }
-.box-user {
-	width: 100%;
-	display: none;
-	align-items: center;
-	justify-content: flex-start;
-	text-align: center;
-	margin-right: 10px;
-	cursor: pointer;
-	.user-login {
-		font-weight: 600;
-	}
-	.img-default {
-		border-radius: 50%;
-		width: 40px;
-		height: 40px;
-		object-fit: cover;
-		margin-right: 20px;
-	}
-}
+
 .sidebar-menu {
 	width: 100%;
 	margin-bottom: 15px;

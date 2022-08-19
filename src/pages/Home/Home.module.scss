@@ -282,6 +282,9 @@
 	.list-new-song {
 		grid-template-columns: repeat(1, 1fr);
 	}
+	.zing-chart {
+		padding: 0;
+	}
 	.container-chart {
 		display: flex;
 		flex-direction: column-reverse;

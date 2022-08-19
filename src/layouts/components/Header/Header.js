@@ -1,12 +1,12 @@
 import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
-import { useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
 import Logolight, { ThemeIcon } from '../../../assets/icons/Icons';
 import Avatar from '../../../assets/images/avatar.jpg';
-import Sidebar from '../Sidebar';
+import SidebarRes from '../SidebarRes/SidebarRes';
 import TippyWrapper from '../TippyWrapper';
 import styles from './Header.module.scss';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
@@ -19,33 +19,41 @@ import Search from './Search/Search';
 const cx = classNames.bind(styles);
 
 function Header() {
+	const [showSidebar, setShowSidebar] = useState(false);
 	const checkIcon1 = useRef(null);
 	const checkIcon2 = useRef(null);
-	const handleCheckIcon1 = () => {
+	const handleCheckIcon1 = useCallback(() => {
 		const addCheckIcon1 = checkIcon1.current.style;
 		const addCheckIcon2 = checkIcon2.current.style;
 		if (checkIcon1) {
 			addCheckIcon1.display = 'block';
 			addCheckIcon2.display = 'none';
 		}
-	};
-	const handleCheckIcon2 = () => {
+	});
+	const handleCheckIcon2 = useCallback(() => {
 		const addCheckIcon1 = checkIcon1.current.style;
 		const addCheckIcon2 = checkIcon2.current.style;
 		if (checkIcon2) {
 			addCheckIcon1.display = 'none';
 			addCheckIcon2.display = 'block';
 		}
-	};
+	});
 
-	const handleShowSidebar = () => {};
+	const handleShowSidebar = useCallback(() => {
+		setShowSidebar((prevSidebar) => !prevSidebar);
+	});
 
 	return (
 		<header className={cx('wrapper')}>
+			<div className={cx('sidebar-responsive')}>
+				<SidebarRes
+					showSidebar={showSidebar}
+					closeSidebar={handleShowSidebar}
+				/>
+			</div>
 			<div className={cx('header-left')}>
 				<div onClick={handleShowSidebar} className={cx('header-sort')}>
-					<i className={cx('icon', 'ic-sort')}></i>
-					<div className={cx('sidebar-res')}></div>
+					<i className={cx('icon-sort', 'ic-sort')}></i>
 				</div>
 				<div className={cx('back-btn-header')}>
 					<i className={cx('icon', 'ic-back')}></i>

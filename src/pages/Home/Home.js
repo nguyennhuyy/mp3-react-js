@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Autoplay, Navigation } from 'swiper';
@@ -32,14 +32,14 @@ function Home() {
 	const listSongRef = useRef();
 	const listAlbumRef = useRef();
 
-	const handleShowSong = () => {
+	const handleShowSong = useCallback(() => {
 		listSongRef.current.style.display = 'grid';
 		listAlbumRef.current.style.display = 'none';
-	};
-	const handleShowAlbum = () => {
+	});
+	const handleShowAlbum = useCallback(() => {
 		listAlbumRef.current.style.display = 'grid';
 		listSongRef.current.style.display = 'none';
-	};
+	});
 
 	const handlePlaySong = (data) => {
 		dispatch(playSong(data));

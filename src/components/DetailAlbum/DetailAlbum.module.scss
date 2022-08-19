@@ -29,7 +29,6 @@
 	position: relative;
 	box-shadow: 0 5px 8px 0 rgba (0, 0, 0, 0.2);
 	border-radius: 10px;
-
 	.image-album {
 		width: 100%;
 		object-fit: cover;
@@ -219,5 +218,6 @@
 	.container-right {
 		height: unset;
 		overflow-y: unset;
+		margin-left: 0;
 	}
 }
