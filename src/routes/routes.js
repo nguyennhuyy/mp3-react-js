@@ -10,6 +10,7 @@ import Newsong from '../pages/Newsong/Newsong';
 import Top100 from '../pages/Top100';
 import Type from '../pages/Type';
 import Mv from '../pages/Mv';
+import Login from '../components/Login';
 export const publicRoutes = [
 	{
 		path: config.routes.profile,
@@ -54,5 +55,9 @@ export const publicRoutes = [
 	{
 		path: config.routes.mv,
 		component: Mv,
+	},
+	{
+		path: config.routes.login,
+		component: Login,
 	},
 ];

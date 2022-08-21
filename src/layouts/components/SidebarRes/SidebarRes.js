@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ListSidebarRes } from './ListSidebarRes';
 import styles from './SidebarRes.module.scss';
 
@@ -10,11 +10,13 @@ function SidebarRes({ showSidebar, closeSidebar }) {
 			<div
 				className={showSidebar ? cx('container', 'active') : cx('container')}>
 				<div className={cx('box-user')}>
-					<img
-						className={cx('img-default')}
-						src='https://avatar.talk.zdn.vn/default.jpg'
-					/>
-					<span className={cx('user-login')}>Đăng Nhập</span>
+					<NavLink to='/login' className={cx('login')} onClick={closeSidebar}>
+						<img
+							className={cx('img-default')}
+							src='https://avatar.talk.zdn.vn/default.jpg'
+						/>
+						<span className={cx('user-login')}>Đăng Nhập</span>
+					</NavLink>
 					<div className={cx('close-tab')} onClick={closeSidebar}>
 						<i className={cx('icon-close', 'ic-close')}></i>
 					</div>

@@ -10,5 +10,6 @@ const routes = {
 	top100: '/top100',
 	type: '/theloai',
 	mv: '/mv',
+	login: '/login',
 };
 export default routes;

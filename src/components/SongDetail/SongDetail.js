@@ -13,7 +13,7 @@ function SongDetail({ data, onClick, ...passProps }) {
 	if (listSong) {
 		return (
 			<div
-				className={cx('wrapper', `${songs?.id == data.id && 'active'}`)}
+				className={cx('wrapper', `${songs?.id === data.id && 'active'}`)}
 				{...props}>
 				<div className={cx('content-left')}>
 					<i className={cx('ic-music', 'ic-song')}></i>
@@ -28,7 +28,7 @@ function SongDetail({ data, onClick, ...passProps }) {
 							<i className={cx('ic-play', 'icon-play')}></i>
 						</button>
 
-						{songs?.id == data.id && (
+						{songs?.id === data.id && (
 							<div className={cx('action-playing')}>
 								<img
 									className={cx('action-play')}
