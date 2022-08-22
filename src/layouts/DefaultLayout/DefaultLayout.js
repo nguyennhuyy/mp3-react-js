@@ -16,16 +16,18 @@ function DefaultLayout({ children }) {
 	}, [params]);
 
 	return (
-		<div className={cx('wrapper')}>
-			<Sidebar />
-			<div className={cx('container')} ref={defaultRef}>
-				<Header />
-				<div className={cx('content')}>{children}</div>
+		<>
+			<div className={cx('wrapper')}>
+				<Sidebar />
+				<div className={cx('container')} ref={defaultRef}>
+					<Header />
+					<div className={cx('content')}>{children}</div>
+				</div>
+				<div className={cx('playing')}>
+					<Playing />
+				</div>
 			</div>
-			<div className={cx('playing')}>
-				<Playing />
-			</div>
-		</div>
+		</>
 	);
 }
 
