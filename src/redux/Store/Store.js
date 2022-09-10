@@ -1,5 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
@@ -9,6 +8,7 @@ import {
 	radioSlices,
 	singerSlices,
 	songSlices,
+	userSlices,
 } from '../slices';
 
 const rootReducer = combineReducers({
@@ -17,6 +17,7 @@ const rootReducer = combineReducers({
 	radio: radioSlices.reducer,
 	singer: singerSlices.reducer,
 	event: eventSlices.reducer,
+	user: userSlices.reducer,
 });
 const persistConfig = {
 	key: 'root',

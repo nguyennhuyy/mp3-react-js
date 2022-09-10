@@ -85,6 +85,7 @@ function Search() {
 			</HeadlessTippy>
 		);
 	}
+	return null;
 }
 
 export default Search;

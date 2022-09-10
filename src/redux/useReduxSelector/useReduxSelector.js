@@ -9,6 +9,7 @@ import {
 	singerData,
 	songCurrent,
 	songData,
+	userData,
 } from './index';
 const useReduxSelector = () => {
 	const songs = useSelector(songCurrent);
@@ -20,6 +21,7 @@ const useReduxSelector = () => {
 	const radio = useSelector(radioData);
 	const singer = useSelector(singerData);
 	const event = useSelector(eventData);
+	const user = useSelector(userData);
 	return {
 		songs,
 		listSong,
@@ -30,6 +32,7 @@ const useReduxSelector = () => {
 		radio,
 		singer,
 		event,
+		user,
 	};
 };
 

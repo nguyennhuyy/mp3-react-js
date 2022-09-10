@@ -11,5 +11,6 @@ const routes = {
 	type: '/theloai',
 	mv: '/mv',
 	login: '/login',
+	register: '/register'
 };
 export default routes;

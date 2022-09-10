@@ -1,17 +1,11 @@
 import classNames from 'classnames/bind';
-import { useEffect } from 'react';
+import { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import RadioItem from '../../components/Radio/RadioItem';
-import {
-	fetchAlbums,
-	fetchAlbumToday,
-	fetchRadio,
-	fetchSongs,
-	playSong,
-} from '../../redux/slices';
+import { playSong } from '../../redux/slices';
 import { useReduxSelector } from '../../redux/useReduxSelector';
 import AlbumItem from '../AlbumItem';
 import Albums from '../Albums';
@@ -24,12 +18,6 @@ function DetailAlbum() {
 	const params = useParams();
 	const dispatch = useDispatch();
 	const { albumToday, listSong, albums, radio } = useReduxSelector();
-	useEffect(() => {
-		dispatch(fetchAlbumToday());
-		dispatch(fetchSongs());
-		dispatch(fetchAlbums());
-		dispatch(fetchRadio());
-	}, []);
 
 	const handlePlaySong = (data) => {
 		dispatch(playSong(data));
@@ -39,7 +27,7 @@ function DetailAlbum() {
 			<div className={cx('wrapper')}>
 				<div className={cx('container')}>
 					{albums.data.map((item) => {
-						if (item.path_key == params.id) {
+						if (item.path_key === params.id) {
 							return (
 								<div className={cx('container-left')} key={item.id}>
 									<div className={cx('detail-thumbnail')}>
@@ -61,6 +49,7 @@ function DetailAlbum() {
 								</div>
 							);
 						}
+						return null;
 					})}
 					<div className={cx('container-right')}>
 						<div className={cx('title-table')}>
@@ -70,7 +59,7 @@ function DetailAlbum() {
 						</div>
 
 						{albums.data.map((item) => {
-							if (item.path_key == params.id) {
+							if (item.path_key === params.id) {
 								return (
 									<div key={item.id}>
 										{item.artists.map((data) => {
@@ -87,6 +76,7 @@ function DetailAlbum() {
 									</div>
 								);
 							}
+							return null;
 						})}
 					</div>
 				</div>
@@ -125,10 +115,11 @@ function DetailAlbum() {
 						if (index > 4 && index < 10) {
 							return <AlbumItem key={item.id} data={item} />;
 						}
+						return null;
 					})}
 				</Albums>
 			</div>
 		);
 	}
 }
-export default DetailAlbum;
+export default memo(DetailAlbum);

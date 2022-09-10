@@ -1,6 +1,7 @@
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import propTypes from 'prop-types';
+import { memo } from 'react';
 import { useReduxSelector } from '../../redux/useReduxSelector';
 import styles from './SongItem.module.scss';
 const cx = classNames.bind(styles);
@@ -26,7 +27,7 @@ function SongItem({
 				className={cx(
 					'wrapper',
 					active,
-					`${songs?.id == data.id && 'action'}`,
+					`${songs?.id === data.id && 'action'}`,
 					className
 				)}
 				{...props}>
@@ -45,11 +46,12 @@ function SongItem({
 					<button className={cx('btn-play')}>
 						<i className={cx('ic-play', 'icon-play')}></i>
 					</button>
-					{songs?.id == data.id && (
+					{songs?.id === data.id && (
 						<div className={cx('action-playing')}>
 							<img
 								className={cx('action-play')}
 								src='https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/icons/icon-playing.gif'
+								alt='play'
 							/>
 						</div>
 					)}
@@ -84,4 +86,4 @@ SongItem.propTypes = {
 	index: propTypes.number,
 };
 
-export default SongItem;
+export default memo(SongItem);

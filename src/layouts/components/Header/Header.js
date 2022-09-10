@@ -1,7 +1,7 @@
 import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
-import { useCallback, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
 import Logolight, { ThemeIcon } from '../../../assets/icons/Icons';
@@ -12,7 +12,7 @@ import styles from './Header.module.scss';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 import {
 	ListMenuItemAvatar,
-	ListMenuItemSetting,
+	ListMenuItemSetting
 } from './HeaderMenu/ListHeaderMenuItem';
 import Search from './Search/Search';
 
@@ -22,26 +22,26 @@ function Header() {
 	const [showSidebar, setShowSidebar] = useState(false);
 	const checkIcon1 = useRef(null);
 	const checkIcon2 = useRef(null);
-	const handleCheckIcon1 = useCallback(() => {
+	const handleCheckIcon1 = () => {
 		const addCheckIcon1 = checkIcon1.current.style;
 		const addCheckIcon2 = checkIcon2.current.style;
 		if (checkIcon1) {
 			addCheckIcon1.display = 'block';
 			addCheckIcon2.display = 'none';
 		}
-	});
-	const handleCheckIcon2 = useCallback(() => {
+	};
+	const handleCheckIcon2 = () => {
 		const addCheckIcon1 = checkIcon1.current.style;
 		const addCheckIcon2 = checkIcon2.current.style;
 		if (checkIcon2) {
 			addCheckIcon1.display = 'none';
 			addCheckIcon2.display = 'block';
 		}
-	});
+	};
 
-	const handleShowSidebar = useCallback(() => {
-		setShowSidebar((prevSidebar) => !prevSidebar);
-	});
+	const handleShowSidebar = () => {
+		setShowSidebar(prevSidebar => !prevSidebar);
+	};
 
 	return (
 		<header className={cx('wrapper')}>
@@ -96,7 +96,7 @@ function Header() {
 					interactive
 					trigger='click'
 					placement='bottom-end'
-					render={(attrs) => (
+					render={attrs => (
 						<div className={cx('header-menu')} tabIndex='-1' {...attrs}>
 							<TippyWrapper>
 								<HeaderMenu
@@ -109,7 +109,7 @@ function Header() {
 								<HeadlessTippy
 									interactive
 									placement='left-start'
-									render={(attrs) => (
+									render={attrs => (
 										<div
 											className={cx('header-menu-second')}
 											tabIndex='-1'
@@ -173,7 +173,7 @@ function Header() {
 								<HeadlessTippy
 									interactive
 									placement='left-start'
-									render={(attrs) => (
+									render={attrs => (
 										<div
 											className={cx('header-menu-second')}
 											tabIndex='-1'
@@ -229,18 +229,19 @@ function Header() {
 				</HeadlessTippy>
 
 				{true ? (
-					<div className={cx('avatar-default')}>
+					<Link to='/login' className={cx('avatar-default')}>
 						<img
 							className={cx('img-default')}
 							src='https://avatar.talk.zdn.vn/default.jpg'
+							alt='default'
 						/>
-					</div>
+					</Link>
 				) : (
 					<HeadlessTippy
 						interactive
 						trigger='click'
 						placement='bottom-end'
-						render={(attrs) => (
+						render={attrs => (
 							<div className={cx('wrapper-option-2')} tabIndex='-1' {...attrs}>
 								<div className={cx('option-3-item')}>
 									{ListMenuItemAvatar.map((item, key) => (

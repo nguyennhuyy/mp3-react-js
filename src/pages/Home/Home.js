@@ -1,6 +1,5 @@
-import React from 'react';
 import classNames from 'classnames/bind';
-import { useCallback, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Autoplay, Navigation } from 'swiper';
@@ -36,15 +35,16 @@ function Home() {
 	const handleShowSong = useCallback(() => {
 		listSongRef.current.style.display = 'grid';
 		listAlbumRef.current.style.display = 'none';
-	});
+	}, []);
 	const handleShowAlbum = useCallback(() => {
 		listAlbumRef.current.style.display = 'grid';
 		listSongRef.current.style.display = 'none';
-	});
+	}, []);
 
-	const handlePlaySong = (data) => {
+	const handlePlaySong = useCallback((data) => {
+		/*eslint-disable */
 		dispatch(playSong(data));
-	};
+	}, []);
 
 	if (albums && albumMedia && listSong && radio && singer && event) {
 		return (
@@ -81,6 +81,7 @@ function Home() {
 						if (index < 5) {
 							return <AlbumItem key={item.id} data={item} />;
 						}
+						return null;
 					})}
 				</Albums>
 
@@ -119,6 +120,7 @@ function Home() {
 									/>
 								);
 							}
+							return null;
 						})}
 					</div>
 
@@ -133,6 +135,7 @@ function Home() {
 						if (index > 4 && index < 10) {
 							return <AlbumItem key={item.id} data={item} />;
 						}
+						return null;
 					})}
 				</Albums>
 				<div className={cx('zing-chart')}>
@@ -158,6 +161,7 @@ function Home() {
 										/>
 									);
 								}
+								return null;
 							})}
 
 							<div className={cx('button-chart')}>
@@ -247,6 +251,7 @@ function Home() {
 							if (index < 3) {
 								return <Event key={item.id} data={item} />;
 							}
+							return null;
 						})}
 					</div>
 				</div>
@@ -263,6 +268,7 @@ function Home() {
 			</div>
 		);
 	}
+	return null;
 }
 
 export default Home;

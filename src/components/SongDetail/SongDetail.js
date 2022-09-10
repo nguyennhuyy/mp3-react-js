@@ -2,6 +2,7 @@ import propTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { useReduxSelector } from '../../redux/useReduxSelector';
 import styles from './SongDetail.module.scss';
+import { memo } from 'react';
 const cx = classNames.bind(styles);
 function SongDetail({ data, onClick, ...passProps }) {
 	const { songs, listSong } = useReduxSelector();
@@ -33,6 +34,7 @@ function SongDetail({ data, onClick, ...passProps }) {
 								<img
 									className={cx('action-play')}
 									src='https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/icons/icon-playing.gif'
+									alt='play'
 								/>
 							</div>
 						)}
@@ -58,4 +60,4 @@ SongDetail.propTypes = {
 	onClick: propTypes.func,
 };
 
-export default SongDetail;
+export default memo(SongDetail);

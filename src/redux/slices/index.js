@@ -8,3 +8,5 @@ export * from './singerSlices';
 export { default as singerSlices } from './singerSlices';
 export * from './songSlices';
 export { default as songSlices } from './songSlices';
+export * from './userSlices';
+export { default as userSlices } from './userSlices';

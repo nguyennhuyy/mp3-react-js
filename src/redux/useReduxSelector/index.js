@@ -8,3 +8,4 @@ export const albumMediaData = (state) => state.albums.albumMediaList;
 export const radioData = (state) => state.radio.radio;
 export const singerData = (state) => state.singer.singers;
 export const eventData = (state) => state.event.event;
+export const userData = (state) => state.user.user;

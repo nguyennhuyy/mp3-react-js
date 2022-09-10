@@ -1,7 +1,7 @@
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import propTypes from 'prop-types';
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { removeSpacing } from '../removeSpacing/removeSpacing';
 import styles from './AlbumItem.module.scss';
@@ -50,4 +50,4 @@ function AlbumItem({ data, onClick, ...passProps }) {
 AlbumItem.propTypes = {
 	data: propTypes.object.isRequired,
 };
-export default AlbumItem;
+export default memo(AlbumItem);

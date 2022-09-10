@@ -47,6 +47,7 @@ function Zingchart() {
 								/>
 							);
 						}
+						return null;
 					})}
 				</div>
 				{disPlayHundred && (

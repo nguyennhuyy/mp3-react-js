@@ -1,0 +1,36 @@
+.wrapper {
+  display: inline-block;
+}
+
+.content{
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.5rem solid #ee9ca7;
+  font-size: 3rem;
+  font-weight: 700;
+  background: -webkit-linear-gradient(#aa4b6b, #6b6b83, #3b8d99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: red;
+  animation: typing 8s steps(40) infinite, blinking 1s infinite;
+}
+
+@keyframes typing {
+  0%, 100% {
+    width: 0;
+  }
+
+  50%, 90% {
+    width: 100%;
+  }
+}
+
+@keyframes blinking {
+  0%, 100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #aa4b6b;
+  }
+}

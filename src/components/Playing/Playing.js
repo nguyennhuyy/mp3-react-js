@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { memo } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { useDispatch } from 'react-redux';
@@ -13,13 +14,15 @@ function Playing() {
 	const { songs } = useReduxSelector();
 	const songIdNext = data.songs.find((item) => {
 		if (songs) {
-			return item.id == +songs.id + 1;
+			return item.id === +songs.id + 1;
 		}
+		return null;
 	});
 	const songIdPrev = data.songs.find((item) => {
 		if (songs) {
-			return item.id == +songs.id - 1;
+			return item.id === +songs.id - 1;
 		}
+		return null;
 	});
 
 	const handleNextSong = () => {
@@ -74,6 +77,7 @@ function Playing() {
 			/>
 		);
 	}
+	return null;
 }
 
-export default Playing;
+export default memo(Playing);

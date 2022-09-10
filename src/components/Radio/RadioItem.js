@@ -26,7 +26,11 @@ function RadioItem({ data, onClick, ...passProps }) {
 					</div>
 				</div>
 				<div className={cx('avatar-second')}>
-					<img className={cx('img-second')} src={data.avatar} />
+					<img
+						className={cx('img-second')}
+						src={data.avatar}
+						alt={data.title}
+					/>
 				</div>
 				<div className={cx('live-icon')}>
 					<LiveIcon />

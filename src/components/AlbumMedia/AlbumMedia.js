@@ -1,6 +1,7 @@
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import propTypes from 'prop-types';
+import { memo } from 'react';
 import styles from './AlbumMedia.module.scss';
 
 const cx = classNames.bind(styles);
@@ -45,4 +46,4 @@ AlbumMedia.propTypes = {
 	data: propTypes.object.isRequired,
 	active: propTypes.bool,
 };
-export default AlbumMedia;
+export default memo(AlbumMedia);

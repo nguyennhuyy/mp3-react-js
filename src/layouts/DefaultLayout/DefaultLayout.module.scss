@@ -6,6 +6,8 @@
 	background-repeat: repeat;
 	width: 100%;
 	justify-content: center;
+	height: 100vh;
+
 }
 
 .container {
@@ -42,10 +44,12 @@
 @media screen and (max-width: 739px) {
 	.wrapper {
 		background: #fcfcfc;
+		height: 100vh;
 	}
 	.container {
 		width: 100%;
 		padding: 20px;
+		height: 100vh;
 	}
 	.playing {
 		z-index: 1;

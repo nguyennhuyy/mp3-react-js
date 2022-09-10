@@ -2,6 +2,7 @@ import propTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './SongPlaying.module.scss';
 import Tippy from '@tippyjs/react';
+import { memo } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -9,7 +10,11 @@ function SongPlaying({ data }) {
 	return (
 		<div className={cx('wrapper')}>
 			<div className={cx('media-left')}>
-				<img className={cx('media-img')} src={data.thumbnail} />
+				<img
+					className={cx('media-img')}
+					src={data.thumbnail}
+					alt={data.name_song}
+				/>
 			</div>
 			<div className={cx('media-content')}>
 				<p className={cx('name-song')}>{data.name_song}</p>
@@ -30,4 +35,4 @@ SongPlaying.propTypes = {
 	data: propTypes.any.isRequired,
 };
 
-export default SongPlaying;
+export default memo(SongPlaying);

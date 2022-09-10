@@ -6,10 +6,14 @@ const cx = classNames.bind(styles);
 function Button({
 	to,
 	href,
+	submit,
 	ref,
 	title,
 	small,
 	large,
+	green,
+	orange,
+	bigLarge,
 	onClick,
 	className,
 	iConRight,
@@ -20,13 +24,16 @@ function Button({
 		href,
 		small,
 		large,
+		green,
+		orange,
+		bigLarge,
 		onClick,
-		[className]: className,
+		[className]: className
 	});
 	let Comp = 'button';
 	const props = {
 		onClick,
-		...PassProps,
+		...PassProps
 	};
 	if (to) {
 		props.to = to;
@@ -36,7 +43,7 @@ function Button({
 		Comp = 'a';
 	}
 	return (
-		<Comp className={classes} {...props}>
+		<Comp type={submit} className={classes} {...props}>
 			<span className={cx('title')}>{title}</span>
 			{iConRight}
 		</Comp>
@@ -50,6 +57,6 @@ Button.propTypes = {
 	small: propTypes.any,
 	large: propTypes.any,
 	onClick: propTypes.func,
-	className: propTypes.string,
+	className: propTypes.string
 };
 export default Button;

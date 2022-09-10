@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ListSidebarRes } from './ListSidebarRes';
 import styles from './SidebarRes.module.scss';
 
@@ -14,6 +14,7 @@ function SidebarRes({ showSidebar, closeSidebar }) {
 						<img
 							className={cx('img-default')}
 							src='https://avatar.talk.zdn.vn/default.jpg'
+							alt='default'
 						/>
 						<span className={cx('user-login')}>Đăng Nhập</span>
 					</NavLink>

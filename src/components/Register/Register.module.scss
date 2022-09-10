@@ -3,43 +3,45 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 100px;
 }
 .header-logo {
   margin: 0 0 20px 0;
 }
-.login-input, .login-input-bottom, .sperator {
+
+.login-input, .login-input-bottom {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  width: 50%;
+  flex-wrap: wrap;
   margin-bottom: 20px ;
-  .input-email, .input-password {
+  .input-email, .input-password, .input-name, 
+  .input-confirmpw {
     padding: 10px;
     border: 1px solid rgb(0 0 0 / 31%);;
-    margin-right: 10px;
+    margin: 0 10px 0 0;
     border-radius: 10px;
+    margin-bottom: 10px;
     width: 230px;
   }
 }
-.login-input-bottom {
-  .login-remember, .login-forget {
-    width: 230px;
-  }
-  .login-remember {
-    & input {
-      margin-right: 5px;
-      cursor: pointer;
-    }
-  }
-  .login-forget {
-   & a {
-      justify-content: flex-start;
-      text-decoration: underline;
-   }
+
+.login-input-item {
+  display: flex;
+  flex-direction: column;
+  .error-input {
+    color: red;
+    margin: -5px 0 5px 5px;
+
   }
 }
 
 .sperator {
   width: 50%;
   margin-top: 20px;
+   display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px ;
   &-line {
     width: 30%;
     height: 1px;

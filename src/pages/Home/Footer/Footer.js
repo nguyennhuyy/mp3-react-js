@@ -6,7 +6,7 @@ function Footer({ data }) {
 	return (
 		<div className={cx('wrapper')}>
 			<div className={cx('content')}>
-				<img className={cx('content-img')} src={data.image} />
+				<img className={cx('content-img')} src={data.image} alt={data.id} />
 			</div>
 		</div>
 	);

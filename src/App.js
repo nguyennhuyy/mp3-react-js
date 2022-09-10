@@ -9,12 +9,12 @@ import {
 	fetchEvent,
 	fetchRadio,
 	fetchSinger,
-	fetchSongs,
+	fetchSongs
 } from './redux/slices';
 import { publicRoutes } from './routes';
 function App() {
+	/*eslint-disable */
 	const dispatch = useDispatch();
-
 	useEffect(() => {
 		dispatch(fetchSongs());
 		dispatch(fetchAlbums());

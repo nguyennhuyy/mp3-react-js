@@ -9,7 +9,11 @@ function Event({ data }) {
 		<div className={cx('wrapper')}>
 			<div className={cx('top-content')}>
 				<div className={cx('content-box')}>
-					<img className={cx('content-img')} src={data.big_thumbnail} />
+					<img
+						className={cx('content-img')}
+						src={data.big_thumbnail}
+						alt={data.title}
+					/>
 				</div>
 				<div className={cx('content-desc')}>
 					<label className={cx('tag-event')}>{data.tag_event}</label>

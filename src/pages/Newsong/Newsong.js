@@ -35,6 +35,7 @@ function Newsong() {
 								/>
 							);
 						}
+						return null;
 					})}
 				</div>
 			</div>

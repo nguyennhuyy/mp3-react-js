@@ -2,6 +2,10 @@
 	cursor: pointer;
 }
 
+a {
+	display: inline-flex;
+	justify-content: center;
+}
 .active {
 	color: var(--white);
 	background-color: var(--purple-primary);
@@ -52,4 +56,21 @@
 
 .large {
 	padding: 9px 20px;
+}
+
+.bigLarge{
+	padding: 12px 0;
+	width: 50%;
+	font-size: 1.7rem;
+	border-radius: 10px;
+	color: #fff;
+	margin: 0 0 15px 0;
+}
+
+//color
+.green {
+	background-color: rgb(4,55,48);
+}
+.orange {
+	background-color: rgb(238,91,71);
 }

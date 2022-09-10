@@ -1,21 +1,15 @@
 import classNames from 'classnames/bind';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { Autoplay, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Developing from '../../components/Developing';
 import RadioItem from '../../components/Radio/RadioItem';
-import { fetchRadio } from '../../redux/slices';
 import { useReduxSelector } from '../../redux/useReduxSelector';
 import styles from './Radio.module.scss';
 
 const cx = classNames.bind(styles);
 function Radio() {
 	const { radio } = useReduxSelector();
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(fetchRadio());
-	}, []);
+
 	if (radio) {
 		return (
 			<div className={cx('wrapper')}>

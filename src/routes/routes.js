@@ -11,53 +11,58 @@ import Top100 from '../pages/Top100';
 import Type from '../pages/Type';
 import Mv from '../pages/Mv';
 import Login from '../components/Login';
+import Register from '../components/Register';
 export const publicRoutes = [
 	{
 		path: config.routes.profile,
-		component: Profile,
+		component: Profile
 	},
 	{
 		path: config.routes.home,
-		component: Home,
+		component: Home
 	},
 	{
 		path: config.routes.zingchart,
-		component: Zingchart,
+		component: Zingchart
 	},
 	{
 		path: config.routes.radio,
-		component: Radio,
+		component: Radio
 	},
 	{
 		path: config.routes.follow,
-		component: Follow,
+		component: Follow
 	},
 	{
 		path: config.routes.album,
-		component: DetailAlbum,
+		component: DetailAlbum
 	},
 	{
 		path: config.routes.singer,
-		component: Singer,
+		component: Singer
 	},
 	{
 		path: config.routes.newsong,
-		component: Newsong,
+		component: Newsong
 	},
 	{
 		path: config.routes.top100,
-		component: Top100,
+		component: Top100
 	},
 	{
 		path: config.routes.type,
-		component: Type,
+		component: Type
 	},
 	{
 		path: config.routes.mv,
-		component: Mv,
+		component: Mv
 	},
 	{
 		path: config.routes.login,
-		component: Login,
+		component: Login
 	},
+	{
+		path: config.routes.register,
+		component: Register
+	}
 ];
