@@ -3,7 +3,7 @@
 
 ---
 
-## _<p align="center">A cloning recruitment website based on [www.zingmp3.vn](https://zingmp3.vn/)_ </p>
+## _<p align="center">A cloning website based on [www.zingmp3.vn](https://zingmp3.vn/)_ </p>
 
 ## Preview: [https://mp3-react-js.vercel.app//](https://mp3-react-js.vercel.app/)
 
@@ -11,7 +11,7 @@
 
 - ReactJS
 - Redux (+ Toolkit), Redux Thunk, Redux persist
-- MirageJS
+- MirageJS (fake API)
 - SASS
 - classnames
 - Axios
