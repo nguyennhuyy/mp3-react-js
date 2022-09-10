@@ -1,23 +1,48 @@
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { Facebook, Github, Google } from '../../assets/icons/Icons';
 import AnimationLogo from '../AnimationLogo';
 import Button from '../Button/Button';
 import styles from './Login.module.scss';
-
+import { loginUser } from '../../redux/api/apiRequest';
 const cx = classNames.bind(styles);
 function Login() {
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
+
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const handleLogin = e => {
+		console.log('hello');
+		e.preventDefault();
+		const newuser = {
+			username,
+			password
+		};
+		loginUser(newuser, dispatch, navigate);
+	};
 	return (
-		<div className={cx('wrapper')}>
+		<form className={cx('wrapper')} onSubmit={handleLogin}>
 			<div className={cx('header-logo')}>
 				<AnimationLogo title='Login to Zing Mp3' />
 			</div>
 			<div className={cx('login-input')}>
-				<input className={cx('input-email')} type='text' placeholder='Email' />
+				<input
+					className={cx('input-email')}
+					type='text'
+					placeholder='Username'
+					value={username}
+					onChange={e => setUsername(e.target.value)}
+				/>
+
 				<input
 					className={cx('input-password')}
 					type='password'
 					placeholder='Password'
+					value={password}
+					onChange={e => setPassword(e.target.value)}
 				/>
 			</div>
 			<div className={cx('login-input-bottom')}>
@@ -29,7 +54,7 @@ function Login() {
 					<Link to='/forget'>Forgot password</Link>
 				</div>
 			</div>
-			<Button bigLarge green title='Sign In' />
+			<Button submit='submit' bigLarge green title='Sign In' />
 			<Button to='/register' bigLarge orange title='Create New Account' />
 			<div className={cx('sperator')}>
 				<span className={cx('sperator-line')}></span>
@@ -61,7 +86,7 @@ function Login() {
 					</Link>
 				</p>
 			</div>
-		</div>
+		</form>
 	);
 }
 

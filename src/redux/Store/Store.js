@@ -8,7 +8,7 @@ import {
 	radioSlices,
 	singerSlices,
 	songSlices,
-	userSlices,
+	authSlices
 } from '../slices';
 
 const rootReducer = combineReducers({
@@ -17,16 +17,16 @@ const rootReducer = combineReducers({
 	radio: radioSlices.reducer,
 	singer: singerSlices.reducer,
 	event: eventSlices.reducer,
-	user: userSlices.reducer,
+	user: authSlices.reducer
 });
 const persistConfig = {
 	key: 'root',
-	storage: storage,
+	storage: storage
 };
 const reducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
 	reducer,
-	middleware: [thunk],
+	middleware: [thunk]
 });
 export const persistor = persistStore(store);
 export default store;

@@ -19,7 +19,7 @@ function Zingchart() {
 		setTopHundred(100);
 		setDisPlayHundred(false);
 	};
-	const handlePlaySong = (data) => {
+	const handlePlaySong = data => {
 		dispatch(playSong(data));
 	};
 	if (listSong) {
@@ -63,6 +63,7 @@ function Zingchart() {
 			</div>
 		);
 	}
+	return null;
 }
 
 export default Zingchart;

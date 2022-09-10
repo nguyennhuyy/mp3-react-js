@@ -12,13 +12,13 @@ const cx = classNames.bind(styles);
 function Playing() {
 	const dispatch = useDispatch();
 	const { songs } = useReduxSelector();
-	const songIdNext = data.songs.find((item) => {
+	const songIdNext = data.songs.find(item => {
 		if (songs) {
 			return item.id === +songs.id + 1;
 		}
 		return null;
 	});
-	const songIdPrev = data.songs.find((item) => {
+	const songIdPrev = data.songs.find(item => {
 		if (songs) {
 			return item.id === +songs.id - 1;
 		}
@@ -68,6 +68,7 @@ function Playing() {
 				loop={false}
 				header={<SongPlaying data={songs} />}
 				autoPlay={false}
+				autoPlayAfterSrcChange
 				showFilledVolume={true}
 				showSkipControls={true}
 				showJumpControls={false}

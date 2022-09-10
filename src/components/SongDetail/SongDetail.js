@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import propTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { useReduxSelector } from '../../redux/useReduxSelector';
@@ -9,12 +11,12 @@ function SongDetail({ data, onClick, ...passProps }) {
 
 	const props = {
 		onClick,
-		...passProps,
+		...passProps
 	};
 	if (listSong) {
 		return (
 			<div
-				className={cx('wrapper', `${songs?.id === data.id && 'active'}`)}
+				className={cx('wrapper', `${songs?.id == data.id && 'active'}`)}
 				{...props}>
 				<div className={cx('content-left')}>
 					<i className={cx('ic-music', 'ic-song')}></i>
@@ -29,7 +31,7 @@ function SongDetail({ data, onClick, ...passProps }) {
 							<i className={cx('ic-play', 'icon-play')}></i>
 						</button>
 
-						{songs?.id === data.id && (
+						{songs?.id == data.id && (
 							<div className={cx('action-playing')}>
 								<img
 									className={cx('action-play')}
@@ -53,11 +55,12 @@ function SongDetail({ data, onClick, ...passProps }) {
 			</div>
 		);
 	}
+	return null;
 }
 
 SongDetail.propTypes = {
 	data: propTypes.object.isRequired,
-	onClick: propTypes.func,
+	onClick: propTypes.func
 };
 
 export default memo(SongDetail);

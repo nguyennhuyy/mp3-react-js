@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import propTypes from 'prop-types';
@@ -18,7 +20,7 @@ function SongItem({
 	const { songs, listSong } = useReduxSelector();
 	const props = {
 		onClick,
-		...PassProps,
+		...PassProps
 	};
 
 	if (listSong) {
@@ -27,7 +29,7 @@ function SongItem({
 				className={cx(
 					'wrapper',
 					active,
-					`${songs?.id === data.id && 'action'}`,
+					`${songs?.id == data.id && 'action'}`,
 					className
 				)}
 				{...props}>
@@ -46,7 +48,7 @@ function SongItem({
 					<button className={cx('btn-play')}>
 						<i className={cx('ic-play', 'icon-play')}></i>
 					</button>
-					{songs?.id === data.id && (
+					{songs?.id == data.id && (
 						<div className={cx('action-playing')}>
 							<img
 								className={cx('action-play')}
@@ -76,6 +78,7 @@ function SongItem({
 			</div>
 		);
 	}
+	return null;
 }
 
 SongItem.propTypes = {
@@ -83,7 +86,7 @@ SongItem.propTypes = {
 	onClick: propTypes.func,
 	active: propTypes.bool,
 	detailSong: propTypes.bool,
-	index: propTypes.number,
+	index: propTypes.number
 };
 
 export default memo(SongItem);

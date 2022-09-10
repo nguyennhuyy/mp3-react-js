@@ -10,35 +10,36 @@ export function makeServer() {
 				albumsToday: data.albumToday,
 				radio: data.radio,
 				singer: data.singer,
-				event: data.event,
+				event: data.event
 			});
 		},
 		models: {
-			songs: Model,
+			songs: Model
 		},
 		routes() {
-			this.get('/api/songs', (schema) => {
+			this.get('/api/songs', schema => {
 				return schema.db.songs;
 			});
-			this.get('/api/albums', (schema) => {
+			this.get('/api/albums', schema => {
 				return schema.db.albums;
 			});
-			this.get('/api/albumstoday', (schema) => {
+			this.get('/api/albumstoday', schema => {
 				return schema.db.albumsToday;
 			});
-			this.get('/api/albummedia', (schema) => {
+			this.get('/api/albummedia', schema => {
 				return schema.db.albumMedia;
 			});
-			this.get('/api/radio', (schema) => {
+			this.get('/api/radio', schema => {
 				return schema.db.radio;
 			});
-			this.get('/api/singer', (schema) => {
+			this.get('/api/singer', schema => {
 				return schema.db.singer;
 			});
-			this.get('/api/event', (schema) => {
+			this.get('/api/event', schema => {
 				return schema.db.event;
 			});
-		},
+			this.post('/v1/auth/login');
+		}
 	});
 	return server;
 }
