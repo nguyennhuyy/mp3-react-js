@@ -139,7 +139,7 @@ function Home() {
 					})}
 				</Albums>
 				<div className={cx('zing-chart')}>
-					<Link to='/zingchart'>
+					<Link to='/zingchart' style="justify-content: flex-start;">
 						<div className={cx('chart-top')}>
 							<span className={cx('title-chart')}>#zingchart</span>
 							<i className={cx('icon-chart', 'ic-play')}></i>
