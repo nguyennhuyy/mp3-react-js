@@ -103,7 +103,9 @@
 	padding: 20px;
 	border-radius: 8px;
 	border: 1px solid var(--hover-tooltip-opacity);
-
+	.zingchart-link {
+		justify-content: flex-start !important;
+	}
 	.chart-top {
 		display: flex;
 		letter-spacing: normal;
