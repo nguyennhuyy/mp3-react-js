@@ -55,7 +55,7 @@ function Login() {
 				</div>
 			</div>
 			<Button submit='submit' bigLarge green title='Sign In' />
-			<Button to='/register' bigLarge orange title='Create New Account' className={cx('login-title-create')} />
+			<Button to='/register' bigLarge orange title='Create New Account' />
 			<div className={cx('sperator')}>
 				<span className={cx('sperator-line')}></span>
 				<span className={cx('sperator-text')}>Or continue with</span>
