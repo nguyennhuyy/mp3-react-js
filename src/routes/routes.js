@@ -12,6 +12,8 @@ import Type from '../pages/Type';
 import Mv from '../pages/Mv';
 import Login from '../components/Login';
 import Register from '../components/Register';
+import Developing from "../components/Developing";
+
 export const publicRoutes = [
 	{
 		path: config.routes.profile,
@@ -64,5 +66,9 @@ export const publicRoutes = [
 	{
 		path: config.routes.register,
 		component: Register
+	},
+	{
+		path: "*",
+		component: Developing
 	}
 ];
